@@ -1,0 +1,70 @@
+create table faculty(
+faculty_id varchar(30),
+name varchar(30) not null,
+department varchar(30) not null,
+ph_no varchar(30) not null,
+email varchar(30) not null,
+primary key(faculty_id));
+
+create table projects(
+proj_id varchar(30),
+name varchar(100),
+start_date date not null,
+end_date date not null,
+budget int(10) not null,
+topic varchar(30),
+sponsor varchar(70),
+primary key(proj_id));
+
+create table journal(
+pub_id varchar(30),
+name varchar(100) not null,
+p_year year not null,
+end_page int,
+start_page int,
+topic varchar(30),
+journal_name varchar(100) not null,
+volume int(10) not null,
+issue_no int(10) not null,
+primary key(pub_id));
+
+create table conference(
+pub_id varchar(30),
+name varchar(100) not null,
+p_year year not null,
+end_page int,
+start_page int,
+topic varchar(30),
+conference_name varchar(100) not null,
+p_month int,
+primary key(pub_id));
+
+create table worked_on(
+proj_id varchar(30),
+faculty_id varchar(30),
+designation varchar(30),
+primary key(proj_id, faculty_id),
+foreign key(proj_id)
+references projects(proj_id),
+foreign key(faculty_id)
+references faculty(faculty_id));
+
+create table published_conf_by(
+pub_id varchar(30),
+faculty_id varchar(30),
+designation varchar(30),
+primary key(pub_id, faculty_id),
+foreign key(pub_id)
+references conference(pub_id),
+foreign key(faculty_id)
+references faculty(faculty_id));
+
+create table published_jour_by(
+pub_id varchar(30),
+faculty_id varchar(30),
+designation varchar(30),
+primary key(pub_id, faculty_id),
+foreign key(pub_id)
+references journal(pub_id),
+foreign key(faculty_id)
+references faculty(faculty_id));
