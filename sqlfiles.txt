@@ -29,6 +29,7 @@ p_year year not null,
 end_page int,
 start_page int,
 topic varchar(30),
+journal_link text,
 journal_name varchar(100) not null,
 volume int(10) not null,
 issue_no int(10) not null,
@@ -41,6 +42,7 @@ p_year year not null,
 end_page int,
 start_page int,
 topic varchar(30),
+conference_link text,
 conference_name varchar(100) not null,
 p_month int,
 primary key(pub_id));
@@ -78,10 +80,68 @@ references faculty(faculty_id));
 
 ------------------------------------------------------------------------------------------------------------------------
 
-insert into departments values('Computer Science');
-insert into departments values('Electrical');
-insert into departments values('Mechanical');
-insert into departments values('Civil');
+insert into departments values('Computer Science'),
+('Electrical'),
+('Mechanical'),('Civil'),('Chemical');
+----------------------------------------------------------------------------------------------------------------------
+insert into faculty values
+('1701CS01','badrinath','Computer Science',1111111111,'bad@gmail.com'),
+('1701CS02','dhanvanth','Civil',1111111112,'dhn@gmail.com'),
+('1701CS03','vijigiri','Chemical',1111111113,'vij@gmail.com'),
+('1701CS04','sujeeth','Electrical',1111111114,'suj@gmail.com'),
+('1701CS05','sagar','Mechanical',1111111115,'sag@gmail.com');
+------------------------------------------------------------------------------------------------------
+insert into projects values
+('pr001','project1','2000-02-01','2000-03-02',332434,'topic1','sponsor1'),
+('pr002','project2','2001-03-02','2001-04-03',332454,'topic4','sponsor2'),
+('pr003','project3','2002-04-03','2002-05-04',332634,'topic3','sponsor3'),
+('pr004','project4','2003-05-04','2003-06-05',337434,'topic3','sponsor4'),
+('pr005','project5','2004-06-05','2004-07-06',382434,'topic5','sponsor5');
+-----------------------------------------------------------------------------------------------------
+insert into journal values
+('pub001','journal1','2010',355,320,'topic1','dsfdsfdsfddsfdfdf','iccajournal1',67,458),
+('pub002','journal2','2013',566,450,'topic2','dsfdsfdsfddsadsfdfdf','iccajournal4',56,645),
+('pub003','journal3','2011',755,620,'topic3','dsfdsghjkhjkdf','iccajournal3',55,454),
+('pub004','journal4','2014',985,810,'topic4','dsfdsfdswrtrtfdfdf','iccajournal3',45,678),
+('pub005','journal5','2015',65,10,'topic5','dsfdsfdsuyiyufdfdf','iccajournal5',45,679);
+---------------------------------------------------------------------------------------------------------
+insert into conference values
+('pub006','conf1','2016',355,320,'topic1','dsfdsfdwersfddsfdfdf','iccaconf1',05),
+('pub007','conf2','2017',353,333,'topic2','dsfdsfdwertsfddsfdfdf','iccaconf2',06),
+('pub008','conf3','2012',55,34,'topic4','dsfdsfdwersfddsfdfdf','iccaconf3',07),
+('pub009','conf4','2018',358,312,'topic3','dsfdsfdwerqewsfddsfdfdf','iccaconf4',09),
+('pub010','conf5','2019',367,234,'topic5','dsfdsfdweryityuisfddsfdfdf','iccaconf5',10);
+------------------------------------------------------------------------------------------------------------
+insert into worked_on values
+('pr001','1701CS02','head'),
+('pr001','1701CS03','assitant'),
+('pr002','1701CS04','head'),
+('pr003','1701CS03','assitant'),
+('pr003','1701CS05','head'),
+('pr002','1701CS05','assitant'),
+('pr004','1701CS01','head'),
+('pr004','1701CS02','assitant');
+-------------------------------------------------------------------------------------------------------------
+insert into published_conf_by values
+('pub006','1701CS02','main'),
+('pub006','1701CS03','secondary'),
+('pub007','1701CS04','main'),
+('pub008','1701CS03','secondary'),
+('pub008','1701CS05','main'),
+('pub007','1701CS05','secondary'),
+('pub009','1701CS01','main'),
+('pub009','1701CS02','secondary');
+---------------------------------------------------------------------------------------------------------------
+insert into published_jour_by values
+('pub001','1701CS02','main'),
+('pub001','1701CS03','secondary'),
+('pub002','1701CS04','main'),
+('pub003','1701CS03','secondary'),
+('pub003','1701CS05','main'),
+('pub002','1701CS05','secondary'),
+('pub004','1701CS01','main'),
+('pub004','1701CS02','secondary');
+----------------------------------------------------------------------------------------------------------------
 
 
 
