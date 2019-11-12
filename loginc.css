@@ -1,0 +1,93 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300);
+body {
+  background: #ffffff;
+  min-height: 100vh;
+  width: auto;
+  position: relative;
+  left: 35%;
+}
+
+.title h1 {
+  font-size: 3.5em;
+  color:#3c64c8;
+}
+
+/* .bar {
+  height: 0.25em;
+  width: 100%;
+  background: #3c64c8;
+  margin: 1.5em auto 0;
+} */
+
+.main {
+  /*  background: $trans-orange;*/
+  min-height: 50vh;
+  position: relative;
+  top: 20vh;
+}
+
+input[type="text"],
+input[type="password"] {
+  font-size: 1.05em;
+  padding: 0.55em;
+  width: 20%;
+  margin-bottom: 1em;
+  border: 2px solid #f58421;
+  border-radius: 0.65em;
+}
+ input[type="text"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder {
+  color: #aaaaaa;
+  position: relative;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+input[type="text"]:hover::-webkit-input-placeholder, input[type="text"]:focus::-webkit-input-placeholder,
+input[type="password"]:hover::-webkit-input-placeholder,
+input[type="password"]:focus::-webkit-input-placeholder {
+  padding-top: 3em;
+} 
+
+
+.form h2 {
+  text-align: left;
+  font-weight: 100;
+  color: #ffffff;
+  margin-bottom: 0.5em;
+}
+.form h4 {
+  font-weight: 100;
+  color: #3c64c8;
+  margin-top: 2em;
+}
+
+.login, .signup {
+  color: #aaaaaa;
+  width: 6em;
+  font-family: Lato;
+  font-weight: 500;
+  font-size: 1.75em;
+  background: #ffffff;
+  transition: all 200ms ease-in;
+
+}
+.login:hover, .signup:hover, .login:focus, .signup:focus {
+  background: #ffffff;
+  color: #f58421;
+  border: none;
+}
+
+.signup {
+  font-size: 1em;
+  position: relative;
+  left: 1.5em;
+}
+
+h1,
+h2, h3, 
+h5,
+h6,
+input {
+  font: Lato;
+  font-weight: 100;
+}
