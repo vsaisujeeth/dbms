@@ -9,7 +9,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
-    	body{margin-top:20px;}                                                                    
+        body{margin-top:20px;}                     
+        form.form{
+            display: none;
+        }      
+        hr
+        {
+            display: none;
+        }    
+        h1{
+            color:#2e86c1;
+            font-style: normal;  
+        }
+        
+    
     </style>
 </head>
 <body>
@@ -56,9 +69,8 @@
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active"><a href="#project" data-toggle="tab">Projects</a></li>
                 <li><a href="#publications" data-toggle="tab">Publications</a></li>
-                <li><a href="#add" data-toggle="tab">Add New</a></li>
+                <li><a href="#add" data-toggle="tab" on>Add New</a></li>
             </ul>
-
             <div class="tab-content">
                 <div class="tab-pane active" id="project">
                     <div class="table-responsive">
@@ -134,102 +146,275 @@
                 </div>
                 <!--/tab-pane-->
                 <div class="tab-pane" id="add">
-
-                    <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="first_name">
-                                    <h4>First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                            </div>
+                        <div class="container">
+                                <div class="row">
+                                   <div class="col-xs-12">
+                                       <br/>
+                                       <button class="btn btn-info" type="submit" onclick="addprojects()">Project</button>
+                                       <button class="btn btn-info" type="submit" onclick="addconferences() ">Conference</button>
+                                       <button class="btn btn-info" type="submit" onclick="addjournal()">Journal</button><br/>
+                                       <div>
+                                            <hr>
+                                            <form class="form" action="##" method="post" id="projectform">
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="prname">
+                                                            <h4>Name</h4></label>
+                                                        <input type="text" class="form-control" name="prname" id="prnameid" placeholder="name" title="enter your project name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="start_date">
+                                                            <h4>StartDate</h4></label>
+                                                        <input type="date" class="form-control" name="start_date" id="start_dateid" placeholder="startdate" title="enter your project's start date">
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="end_date">
+                                                            <h4>EndDate</h4></label>
+                                                        <input type="date" class="form-control" name="end_date" id="end_dateid" placeholder="enddate" title="enter your project's enddate">
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <label for="budget">
+                                                            <h4>Budget</h4></label>
+                                                        <input type="text" class="form-control" name="budget" id="budgetid" placeholder="budget" title="enter your project's budget">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="topic">
+                                                            <h4>Topic</h4></label>
+                                                        <input type="text" class="form-control" name="topic" id="topicid" placeholder="topic" title="enter your project's topic">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="sponsor">
+                                                            <h4>Sponsoring Organisation</h4></label>
+                                                        <input type="text" class="form-control" name="sponsor"id="sponsorid" placeholder="Organisation" title="enter sponsoring organisation">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <br>
+                                                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button><br><br>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            </div>
+                                       <br/>
+                                       
+                                       <div>
+                                            <hr>
+                                            <form class="form" action="##" method="post" id="conferenceform">
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="conname">
+                                                            <h4>Name</h4></label>
+                                                        <input type="text" class="form-control" name="conname" id="connameid" placeholder="conference publication name" title="enter your conference publication name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="confyear">
+                                                            <h4>Conference Publication Year</h4></label>
+                                                        <input type="text" class="form-control" name="confyear" id="confyearid" placeholder="coference year" title="enter the year of conference">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <label for="startpage">
+                                                            <h4>StartPage</h4></label>
+                                                        <input type="text" class="form-control" name="startpage" id="startpageid" placeholder="startpage" title="enter the starting page of your conference publication">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <label for="endpage">
+                                                            <h4>EndPage</h4></label>
+                                                        <input type="text" class="form-control" name="endpage" id="endpageid" placeholder="ending page" title="enter the ending page of your conference publication">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <label for="topic">
+                                                            <h4>Topic</h4></label>
+                                                        <input type="text" class="form-control" name= "topic"id="topicid" placeholder="conference topic" title="enter the conference publication topic">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="conferencelink">
+                                                            <h4>Conference Publication Link</h4></label>
+                                                        <input type="text" class="form-control" name="conferencelink" id="conferencelinkid" placeholder="conference publication link" title="enter the link to your conference publication">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="confname">
+                                                            <h4>Conference Name</h4></label>
+                                                        <input type="text" class="form-control" name="confname " id="confnameid" placeholder="conference name" title="enter the name of the conference">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="confmonth">
+                                                            <h4>Conference Month</h4></label>
+                                                        <input type="text" class="form-control" name="confmonth " id="confmonthid" placeholder="conference month" title="enter the month of the conference">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-12">
+                                                        <br>
+                                                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button><br><br>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            </div>
+                                       <br/>
+                                       
+                                       <div>
+                                            <hr>
+                                            <form class="form" action="##" method="post" id="journalform">
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="jname">
+                                                            <h4>JournalName</h4></label>
+                                                        <input type="text" class="form-control" name="jname" id="jnameid" placeholder="journal publication name" title="enter the name of your journal publication">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="jyear">
+                                                            <h4>Journal Year</h4></label>
+                                                        <input type="text" class="form-control" name="jyear" id="jyearid" placeholder="journal publication year" title="enter the year of your journal publication year">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <label for="startpage">
+                                                            <h4>StartPage</h4></label>
+                                                        <input type="text" class="form-control" name="startpage" id="startpageid" placeholder="startpage" title="enter the starting page of your conference publication">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <label for="endpage">
+                                                            <h4>EndPage</h4></label>
+                                                        <input type="text" class="form-control" name="endpage" id="endpageid" placeholder="ending page" title="enter the ending page of your conference publication">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <label for="topic">
+                                                            <h4>Topic</h4></label>
+                                                        <input type="text" class="form-control" name= "topic"id="topicid" placeholder="conference topic" title="enter the conference publication topic">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="jlink">
+                                                            <h4>Journal Publication Link</h4></label>
+                                                        <input type="text" class="form-control" name="jlink" id="jlinkid" placeholder="journal publication link" title="enter the link to your journal publication">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-xs-6">
+                                                        <label for="volume">
+                                                            <h4>Volume</h4></label>
+                                                        <input type="text" class="form-control" name="volume" id="volumeid" placeholder="Volume no" title="enter the volume no of your journal publication">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="issueno">
+                                                            <h4>IssueNo</h4></label>
+                                                        <input type="text" class="form-control" name="issueno" id="issuenoid" placeholder="Issue no" title="enter the issue no of the journal publication">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <div class="form-group">
+                                                                <div class="col-xs-12">
+                                                                    <br>
+                                                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button><br><br>
+                                                                </div>
+                                                            </div>
+                                            </form>
+                                            </div>
+                                   </div>
+                                </div>
                         </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="last_name">
-                                    <h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="phone">
-                                    <h4>Phone</h4></label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <label for="mobile">
-                                    <h4>Mobile</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email">
-                                    <h4>Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email">
-                                    <h4>Location</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password">
-                                    <h4>Password</h4></label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password2">
-                                    <h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
-
             </div>
             <!--/tab-pane-->
         </div>
         <!--/tab-content-->
-
     </div>
     <!--/col-9-->
 </div>
 <!--/row-->
-
+</div><!--bootsnippet-->
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	                        
 
-                        
+function addprojects()
+{
+    var x= document.getElementById("projectform");
+    if(x.style.display=="block"){
+        x.style.display="none";
+    }else {
+        x.style.display ="block";
+        document.getElementById("conferenceform").style.display="none";
+        document.getElementById("journalform").style.display="none";
+    }
 
-              	  
-                                                      
+}
+function addconferences()
+{
+    var x= document.getElementById("conferenceform");
+    if(x.style.display=="block"){
+        x.style.display="none";
+    }else {
+        x.style.display ="block";
+        document.getElementById("projectform").style.display="none";
+        document.getElementById("journalform").style.display="none";
+    }
+} 
+function addjournal()
+{
+    var x= document.getElementById("journalform");
+    if(x.style.display=="block"){
+        x.style.display="none";
+    }else {
+        x.style.display ="block";
+        document.getElementById("conferenceform").style.display="none";
+        document.getElementById("projectform").style.display="none";
+
+    }
+}                         
 </script>
 </body>
 </html>
