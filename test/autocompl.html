@@ -7,20 +7,24 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
         $(function() {
+            //var manufacturers = ['Volkswagen', 'Audi', 'Mercedes', 'Skoda', 'Toyota', 'Renault', 'Volvo', 'Mazda'];
 
             $('#hint').autocomplete({
                 source: function( request, response ) {
                     $.ajax({
                         url: "autocompl.php",
-                        dataType: "jsonp",
+                        dataType: "json",
                         data: {
                             q: request.term
                         },
                         success: function( data ) {
                             response( data );
+                            return data;
                         }
                     });
+                
                 },
+                //source: manufacturers
             });
                 
         });
@@ -34,6 +38,9 @@
         <form class="sansserif" >
             Name: <input type="text" id="hint" name="hint" />
             <input type="submit" name="submit" value="View">
+            <div id="contain">
+
+            </div>
         </form>
     </div>
 </body>
