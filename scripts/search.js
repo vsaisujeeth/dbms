@@ -44,7 +44,7 @@ $(document).ready(function(){
            });
     }
 
-    $('#p_search_text').keydown(function(){
+    $('#p_search_text').keydown(function(){ 
      var search = $(this).val();
      if(search != '')
      {
