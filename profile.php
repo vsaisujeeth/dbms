@@ -231,7 +231,7 @@
                                                         <h4 style="display:inline-block;">Select Additional Faculty:</h4> <h6 style="display:inline-block;">(you are selected by default)</h6>
                                                         </label>
                                                         <br>
-                                                        <select style ="width:100%; " class="js-example-basic-multiple form-control" name="state" multiple = "multiple" >
+                                                        <select style ="width:100%; " class="js-example-basic-multiple form-control" name="faculty[]" multiple = "multiple" >
                                                             <?php
                                                                  $sql = "select * from faculty ";
                                                                  $result1 = $connect->query($sql);
@@ -259,13 +259,30 @@
                                        
                                        <div>
                                             
-                                            <form class="form" action="##" method="post" id="conferenceform">
+                                            <form class="form" action="php/profile_conf_add.php" method="post" id="conferenceform">
                                                 <div class="form-group">
                         
                                                     <div class="col-xs-6">
                                                         <label for="conname">
                                                             <h4>Name</h4></label>
-                                                        <input type="text" class="form-control" name="conname" id="connameid" placeholder="conference publication name" title="enter your conference publication name">
+                                                        <input type="text" class="form-control" name="conname" id="connameid" placeholder="conference publication name" title="enter your conference Entry">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="conf_name">
+                                                            <h4>Coference Name</h4></label>
+                                                        <input type="text" class="form-control" name="conf_name" id="connameid" placeholder="conference publication name" title="enter your conference name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="conf_month">
+                                                            <h4>Name</h4></label>
+                                                        <input type="number" class="form-control" name="conf_month" id="connameid" placeholder="conference publication name" title="enter month of conference ">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -273,21 +290,21 @@
                                                     <div class="col-xs-6">
                                                         <label for="confyear">
                                                             <h4>Conference Publication Year</h4></label>
-                                                        <input type="text" class="form-control" name="confyear" id="confyearid" placeholder="coference year" title="enter the year of conference">
+                                                        <input type="number" class="form-control" name="confyear" id="confyearid" placeholder="coference year" title="enter the year of conference">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-6">
                                                         <label for="startpage">
                                                             <h4>StartPage</h4></label>
-                                                        <input type="text" class="form-control" name="startpage" id="startpageid" placeholder="startpage" title="enter the starting page of your conference publication">
+                                                        <input type="number" class="form-control" name="startpage" id="startpageid" placeholder="startpage" title="enter the starting page of your conference publication">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-6">
                                                         <label for="endpage">
                                                             <h4>EndPage</h4></label>
-                                                        <input type="text" class="form-control" name="endpage" id="endpageid" placeholder="ending page" title="enter the ending page of your conference publication">
+                                                        <input type="number" class="form-control" name="endpage" id="endpageid" placeholder="ending page" title="enter the ending page of your conference publication">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -305,29 +322,13 @@
                                                         <input type="text" class="form-control" name="conferencelink" id="conferencelinkid" placeholder="conference publication link" title="enter the link to your conference publication">
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                        
-                                                    <div class="col-xs-6">
-                                                        <label for="confname">
-                                                            <h4>Conference Name</h4></label>
-                                                        <input type="text" class="form-control" name="confname " id="confnameid" placeholder="conference name" title="enter the name of the conference">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                        
-                                                    <div class="col-xs-6">
-                                                        <label for="confmonth">
-                                                            <h4>Conference Month</h4></label>
-                                                        <input type="text" class="form-control" name="confmonth " id="confmonthid" placeholder="conference month" title="enter the month of the conference">
-                                                    </div>
-                                                </div>
                                                 <div class="form-group "> 
                                                     <div class="col-xs-9"> 
                                                         <label for="state">
                                                             <h4 style="display:inline-block;">Select Additional Faculty:</h4> <h6 style="display:inline-block;">(you are selected by default)</h6>
                                                         </label>
                                                         <br>
-                                                        <select style ="width:100%; " class="js-example-basic-multiple form-control" name="state" multiple = "multiple" >
+                                                        <select style ="width:100%; " class="js-example-basic-multiple form-control" name="faculty[]" multiple = "multiple" >
                                                             <?php
                                                                  $sql = "select * from faculty ";
                                                                  $result1 = $connect->query($sql);
@@ -357,13 +358,13 @@
                                        
                                        <div>
                                             
-                                            <form class="form" action="##" method="post" id="journalform">
+                                            <form class="form" action="php/profile_joun_add.php" method="post" id="journalform">
                                                 <div class="form-group">
                         
                                                     <div class="col-xs-6">
                                                         <label for="jname">
-                                                            <h4>JournalName</h4></label>
-                                                        <input type="text" class="form-control" name="jname" id="jnameid" placeholder="journal publication name" title="enter the name of your journal publication">
+                                                            <h4>Name</h4></label>
+                                                        <input type="text" class="form-control" name="jname" id="jnameid" placeholder="journal publication name" title="enter the name of your journal Entry">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -404,6 +405,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                        
+                                                    <div class="col-xs-6">
+                                                        <label for="jour_name">
+                                                            <h4>Journal Name</h4></label>
+                                                        <input type="text" class="form-control" name="jour_name"  placeholder="Issue no" title="enter the name of the journal publication">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <div class="col-xs-6">
                                                         <label for="volume">
                                                             <h4>Volume</h4></label>
@@ -418,13 +428,14 @@
                                                         <input type="text" class="form-control" name="issueno" id="issuenoid" placeholder="Issue no" title="enter the issue no of the journal publication">
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="form-group " > 
                                                     <div class="col-xs-9"> 
                                                         <label for="state">
                                                         <h4 style="display:inline-block;">Select Additional Faculty:</h4> <h6 style="display:inline-block;">(you are selected by default)</h6>
                                                         </label>
                                                         <br>
-                                                        <select style ="width:100%; " class="js-example-basic-multiple form-control" name="state" multiple = "multiple" >
+                                                        <select style ="width:100%; " class="js-example-basic-multiple form-control" name="faculty[]" multiple = "multiple" >
                                                             <?php
                                                                  $sql = "select * from faculty ";
                                                                  $result1 = $connect->query($sql);
