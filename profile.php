@@ -1,13 +1,22 @@
+<?php
+    session_start();
+    $connect = mysqli_connect("localhost", "root", "", "dbms");
+   
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from https://bootdey.com  -->
     <!--  All snippets are MIT license https://bootdey.com/license -->
-    <title>Bootdey.com</title>
+    <title>Profile Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+	
     <style type="text/css">
         body{margin-top:20px;}                     
         form.form{
@@ -30,8 +39,16 @@
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10">
-            <h1>Samrat</h1>
-            <p> Computer Science Departments</p>
+            <h1>
+                <?php
+                     echo($_SESSION['user_id']);
+                ?>
+            </h1>
+            <p style="margin: 1rem;"> 
+                <?php
+                    echo($_SESSION['dept']);
+                ?>
+            </p>
         </div>
         <div class="col-sm-2">
             <a class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Indian_Institute_of_Technology%2C_Patna.svg/345px-Indian_Institute_of_Technology%2C_Patna.svg.png"></a>
@@ -43,22 +60,22 @@
 
             <ul class="list-group">
                 <li class="list-group-item text-muted">Profile</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span>Samrat Mondel</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Department</strong></span>CSE</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> <?php echo($_SESSION['joined_on']) ?></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span> <?php echo($_SESSION['name']) ?></li>
+                
 
             </ul>
 
             <div class="panel panel-default">
                 <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-                <div class="panel-body"><a href="https://bootdey.com">Link</a></div>
+                <div class="panel-body"><a href="https://www.iitp.ac.in">Link</a></div>
             </div>
 
             <ul class="list-group">
                 <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Projects</strong></span> 125</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Publications</strong></span> 13</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Phd students</strong></span> 37</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Projects</strong></span> <?php echo($_SESSION['proj_count']) ?> </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Conference</strong></span><?php echo($_SESSION['conf_count']) ?> </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Journals</strong></span> <?php echo($_SESSION['jour_count']) ?></li>
             </ul>
 
 
@@ -155,15 +172,18 @@
                                        <button class="btn btn-info" type="submit" onclick="addjournal()">Journal</button><br/>
                                        <div>
                                             
-                                            <form class="form" action="##" method="post" id="projectform">
+                                            <form class="form" action="php/profile_project_add.php" method="post" id="projectform">
                                                 <div class="form-group">
                         
                                                     <div class="col-xs-6">
+
+                                                    
                                                         <label for="prname">
                                                             <h4>Name</h4></label>
                                                         <input type="text" class="form-control" name="prname" id="prnameid" placeholder="name" title="enter your project name">
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="form-group">
                         
                                                     <div class="col-xs-6">
@@ -172,7 +192,7 @@
                                                         <input type="date" class="form-control" name="start_date" id="start_dateid" placeholder="startdate" title="enter your project's start date">
                                                     </div>
                                                 </div>
-                        
+
                                                 <div class="form-group">
                         
                                                     <div class="col-xs-6">
@@ -203,6 +223,27 @@
                                                         <label for="sponsor">
                                                             <h4>Sponsoring Organisation</h4></label>
                                                         <input type="text" class="form-control" name="sponsor"id="sponsorid" placeholder="Organisation" title="enter sponsoring organisation">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group "> 
+                                                    <div class="col-xs-9"> 
+                                                        <label for="state">
+                                                        <h4 style="display:inline-block;">Select Additional Faculty:</h4> <h6 style="display:inline-block;">(you are selected by default)</h6>
+                                                        </label>
+                                                        <br>
+                                                        <select style ="width:100%; " class="js-example-basic-multiple form-control" name="state" multiple = "multiple" >
+                                                            <?php
+                                                                 $sql = "select * from faculty ";
+                                                                 $result1 = $connect->query($sql);
+                                                                 if($result1)
+                                                                 {
+                                                                     while($row = $result1->fetch_assoc())
+                                                                     {
+                                                                         echo("<option value='".$row['faculty_id']."'> ".$row['name']."</option>");
+                                                                     }
+                                                                 }
+                                                            ?>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -280,6 +321,28 @@
                                                         <input type="text" class="form-control" name="confmonth " id="confmonthid" placeholder="conference month" title="enter the month of the conference">
                                                     </div>
                                                 </div>
+                                                <div class="form-group "> 
+                                                    <div class="col-xs-9"> 
+                                                        <label for="state">
+                                                            <h4 style="display:inline-block;">Select Additional Faculty:</h4> <h6 style="display:inline-block;">(you are selected by default)</h6>
+                                                        </label>
+                                                        <br>
+                                                        <select style ="width:100%; " class="js-example-basic-multiple form-control" name="state" multiple = "multiple" >
+                                                            <?php
+                                                                 $sql = "select * from faculty ";
+                                                                 $result1 = $connect->query($sql);
+                                                                 if($result1)
+                                                                 {
+                                                                     while($row = $result1->fetch_assoc())
+                                                                     {
+                                                                         echo("<option value='".$row['faculty_id']."'> ".$row['name']."</option>");
+                                                                     }
+                                                                 }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                                 <div class="form-group">
                                                     <div class="col-xs-12">
                                                         <br>
@@ -287,6 +350,7 @@
                                                         <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button><br><br>
                                                     </div>
                                                 </div>
+                                                
                                             </form>
                                             </div>
                                        <br/>
@@ -354,6 +418,26 @@
                                                         <input type="text" class="form-control" name="issueno" id="issuenoid" placeholder="Issue no" title="enter the issue no of the journal publication">
                                                     </div>
                                                 </div>
+                                                <div class="form-group " > 
+                                                    <div class="col-xs-9"> 
+                                                        <label for="state">
+                                                        <h4 style="display:inline-block;">Select Additional Faculty:</h4> <h6 style="display:inline-block;">(you are selected by default)</h6>
+                                                        </label>
+                                                        <br>
+                                                        <select style ="width:100%; " class="js-example-basic-multiple form-control" name="state" multiple = "multiple" >
+                                                            <?php
+                                                                 $sql = "select * from faculty ";
+                                                                 $result1 = $connect->query($sql);
+                                                                 if($result1)
+                                                                 {
+                                                                     while($row = $result1->fetch_assoc())
+                                                                     {
+                                                                         echo("<option value='".$row['faculty_id']."'> ".$row['name']."</option>");
+                                                                     }
+                                                                 }
+                                                            ?>
+                                                        </select>
+                                                    </div>
                                                 <div class="form-group">
                                                 
                                                     <div class="col-xs-12">
@@ -361,6 +445,8 @@
                                                         <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
                                                         <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button><br><br>
                                                     </div>
+                                                </div>
+                                                
                                                 </div>
                                             </form>
                                             </div>
@@ -403,6 +489,10 @@ function addconferences()
         document.getElementById("journalform").style.display="none";
     }
 } 
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});                                                
+
 function addjournal()
 {
     var x= document.getElementById("journalform");
