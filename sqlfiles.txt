@@ -77,7 +77,10 @@ references journal(pub_id),
 foreign key(faculty_id)
 references faculty(faculty_id));
 
-
+create table admin(
+faculty_id varchar(30),
+password varchar(50),
+foreign key(faculty_id) references faculty(faculty_id));
 ------------------------------------------------------------------------------------------------------------------------
 
 insert into departments values('Computer Science'),
@@ -142,6 +145,11 @@ insert into published_jour_by values
 ('pub004','1701CS01','main'),
 ('pub004','1701CS02','secondary');
 ----------------------------------------------------------------------------------------------------------------
-
+ insert into admin values
+('1701CS01','badrinath01'),
+('1701CS02','dhanvanth02'),
+('1701CS03','vijigiri03'),
+('1701CS04','sujeeth04'),
+('1701CS05','sagar05');
 
 
