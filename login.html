@@ -10,9 +10,11 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3 form">
       <h2> </h2>
-      <input type="text" name="username" placeholder="facultyID"/><br/>
-      <input type="password" name="password" placeholder="password"/><br/><a class="btn btn-default login" href="#0">login</a>
-      <h4>New User?<span><a class="btn btn-default signup" href="loginc.css">Signup</a></span></h4>
+      <form action="php/login.php" method="post">
+        <input type="text" name="username" placeholder="facultyID"/><br/>
+        <input type="password" name="password" placeholder="password"/><br/>
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
     </div>
   </div>
 </div>
