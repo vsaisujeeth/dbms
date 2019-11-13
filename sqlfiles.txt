@@ -80,8 +80,7 @@ references faculty(faculty_id));
 
 create table admin(
 faculty_id varchar(30),
-password varchar(50),
-foreign key(faculty_id) references faculty(faculty_id));
+password varchar(50));
 ------------------------------------------------------------------------------------------------------------------------
 
 insert into departments values('Computer Science'),
