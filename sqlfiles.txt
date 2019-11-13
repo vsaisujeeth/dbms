@@ -14,7 +14,7 @@ foreign key(department)
 references departments(dept_name));
 
 create table projects(
-proj_id varchar(30),
+proj_id int auto_increment,
 name varchar(100),
 start_date date not null,
 end_date date not null,
@@ -24,7 +24,7 @@ sponsor varchar(70),
 primary key(proj_id));
 
 create table journal(
-pub_id varchar(30),
+pub_id int auto_increment,
 name varchar(100) not null,
 p_year year not null,
 end_page int,
@@ -37,7 +37,7 @@ issue_no int(10) not null,
 primary key(pub_id));
 
 create table conference(
-pub_id varchar(30),
+pub_id int auto_increment,
 name varchar(100) not null,
 p_year year not null,
 end_page int,
@@ -49,7 +49,7 @@ p_month int,
 primary key(pub_id));
 
 create table worked_on(
-proj_id varchar(30),
+proj_id int,
 faculty_id varchar(30),
 designation varchar(30),
 primary key(proj_id, faculty_id),
@@ -59,7 +59,7 @@ foreign key(faculty_id)
 references faculty(faculty_id));
 
 create table published_conf_by(
-pub_id varchar(30),
+pub_id int,
 faculty_id varchar(30),
 designation varchar(30),
 primary key(pub_id, faculty_id),
@@ -69,7 +69,7 @@ foreign key(faculty_id)
 references faculty(faculty_id));
 
 create table published_jour_by(
-pub_id varchar(30),
+pub_id int,
 faculty_id varchar(30),
 designation varchar(30),
 primary key(pub_id, faculty_id),
@@ -96,55 +96,58 @@ insert into faculty values
 ('1701CS05','sagar','Mechanical',1111111115,'sag@gmail.com','2012-03-21');
 ------------------------------------------------------------------------------------------------------
 insert into projects values
-('pr001','project1','2000-02-01','2000-03-02',332434,'topic1','sponsor1'),
-('pr002','project2','2001-03-02','2001-04-03',332454,'topic4','sponsor2'),
-('pr003','project3','2002-04-03','2002-05-04',332634,'topic3','sponsor3'),
-('pr004','project4','2003-05-04','2003-06-05',337434,'topic3','sponsor4'),
-('pr005','project5','2004-06-05','2004-07-06',382434,'topic5','sponsor5');
+(1,'project1','2000-02-01','2000-03-02',332434,'topic1','sponsor1'),
+(2,'project2','2001-03-02','2001-04-03',332454,'topic4','sponsor2'),
+(3,'project3','2002-04-03','2002-05-04',332634,'topic3','sponsor3'),
+(4,'project4','2003-05-04','2003-06-05',337434,'topic3','sponsor4'),
+(5,'project5','2004-06-05','2004-07-06',382434,'topic5','sponsor5');
 -----------------------------------------------------------------------------------------------------
 insert into journal values
-('pub001','journal1','2010',355,320,'topic1','dsfdsfdsfddsfdfdf','iccajournal1',67,458),
-('pub002','journal2','2013',566,450,'topic2','dsfdsfdsfddsadsfdfdf','iccajournal4',56,645),
-('pub003','journal3','2011',755,620,'topic3','dsfdsghjkhjkdf','iccajournal3',55,454),
-('pub004','journal4','2014',985,810,'topic4','dsfdsfdswrtrtfdfdf','iccajournal3',45,678),
-('pub005','journal5','2015',65,10,'topic5','dsfdsfdsuyiyufdfdf','iccajournal5',45,679);
+(1,'journal1','2010',355,320,'topic1','dsfdsfdsfddsfdfdf','iccajournal1',67,458),
+(2,'journal2','2013',566,450,'topic2','dsfdsfdsfddsadsfdfdf','iccajournal4',56,645),
+(3,'journal3','2011',755,620,'topic3','dsfdsghjkhjkdf','iccajournal3',55,454),
+(4,'journal4','2014',985,810,'topic4','dsfdsfdswrtrtfdfdf','iccajournal3',45,678),
+(5,'journal5','2015',65,10,'topic5','dsfdsfdsuyiyufdfdf','iccajournal5',45,679);
 ---------------------------------------------------------------------------------------------------------
 insert into conference values
-('pub006','conf1','2016',355,320,'topic1','dsfdsfdwersfddsfdfdf','iccaconf1',05),
-('pub007','conf2','2017',353,333,'topic2','dsfdsfdwertsfddsfdfdf','iccaconf2',06),
-('pub008','conf3','2012',55,34,'topic4','dsfdsfdwersfddsfdfdf','iccaconf3',07),
-('pub009','conf4','2018',358,312,'topic3','dsfdsfdwerqewsfddsfdfdf','iccaconf4',09),
-('pub010','conf5','2019',367,234,'topic5','dsfdsfdweryityuisfddsfdfdf','iccaconf5',10);
+(1,'conf1','2016',355,320,'topic1','dsfdsfdwersfddsfdfdf','iccaconf1',05),
+(2,'conf2','2017',353,333,'topic2','dsfdsfdwertsfddsfdfdf','iccaconf2',06),
+(3,'conf3','2012',55,34,'topic4','dsfdsfdwersfddsfdfdf','iccaconf3',07),
+(4,'conf4','2018',358,312,'topic3','dsfdsfdwerqewsfddsfdfdf','iccaconf4',09),
+(5,'conf5','2019',367,234,'topic5','dsfdsfdweryityuisfddsfdfdf','iccaconf5',10);
 ------------------------------------------------------------------------------------------------------------
 insert into worked_on values
-('pr001','1701CS02','head'),
-('pr001','1701CS03','assitant'),
-('pr002','1701CS04','head'),
-('pr003','1701CS03','assitant'),
-('pr003','1701CS05','head'),
-('pr002','1701CS05','assitant'),
-('pr004','1701CS01','head'),
-('pr004','1701CS02','assitant');
+(1,'1701CS02','head'),
+(1,'1701CS03','assitant'),
+(2,'1701CS04','head'),
+(3,'1701CS03','assitant'),
+(3,'1701CS05','head'),
+(2,'1701CS05','assitant'),
+(4,'1701CS01','head'),
+(4,'1701CS02','assitant'),
+(5,'1701CS04','head');
 -------------------------------------------------------------------------------------------------------------
 insert into published_conf_by values
-('pub006','1701CS02','main'),
-('pub006','1701CS03','secondary'),
-('pub007','1701CS04','main'),
-('pub008','1701CS03','secondary'),
-('pub008','1701CS05','main'),
-('pub007','1701CS05','secondary'),
-('pub009','1701CS01','main'),
-('pub009','1701CS02','secondary');
+(1,'1701CS02','main'),
+(1,'1701CS03','secondary'),
+(2,'1701CS04','main'),
+(3,'1701CS03','secondary'),
+(3,'1701CS05','main'),
+(2,'1701CS05','secondary'),
+(4,'1701CS01','main'),
+(4,'1701CS02','secondary'),
+(5,'1701CS04','main');
 ---------------------------------------------------------------------------------------------------------------
 insert into published_jour_by values
-('pub001','1701CS02','main'),
-('pub001','1701CS03','secondary'),
-('pub002','1701CS04','main'),
-('pub003','1701CS03','secondary'),
-('pub003','1701CS05','main'),
-('pub002','1701CS05','secondary'),
-('pub004','1701CS01','main'),
-('pub004','1701CS02','secondary');
+(1,'1701CS02','main'),
+(1,'1701CS03','secondary'),
+(2,'1701CS04','main'),
+(3,'1701CS03','secondary'),
+(3,'1701CS05','main'),
+(2,'1701CS05','secondary'),
+(4,'1701CS01','main'),
+(4,'1701CS02','secondary'),
+(5,'1701CS04','main');
 ----------------------------------------------------------------------------------------------------------------
  insert into admin values
  ('admin','admin'),
