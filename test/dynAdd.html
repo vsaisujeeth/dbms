@@ -5,18 +5,30 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Document</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  
+		<title>Document</title>
 </head>
 <body>
-    <div style="margin: 0.5rem;">
+	<div style="margin: 0.5rem;">
+		<form action="dynadd.php" method="GET">
             <label for="peopeInput">People</label>
-            <input style= "width: 25%; margin-bottom: 0.5rem;  " type="text" id="peopleInput0" class="form-control">
+            <input style= "width: 25%; margin-bottom: 0.5rem;  " type="text" id="peopleInput0" class="form-control hello" name="mytext[]">
             <div class="input_fields_wrap" ></div>
-            <button type="button" class="btn btn-primary add_field_button">Add people</button>
+			<button type="button" class="btn btn-primary add_field_button">Add people</button>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
     </div>
 </body>
+
 <script>
+     var availableAttributes = [
+    ];
+
     $(document).ready(function() {
+
 	var max_fields      = 10; //maximum input boxes allowed
 	var wrapper   		= $(".input_fields_wrap"); //Fields wrapper
 	var add_button      = $(".add_field_button"); //Add button ID
@@ -26,14 +38,56 @@
 		e.preventDefault();
 		if(x < max_fields){ //max input box allowed
 			x++; //text box increment
-			$(wrapper).append('<div><input style= "display: inline-block; width: 25%; margin-bottom: 0.5rem;" class="form-control"type="text" name="mytext[]"/><a href="#" style="display: inline-block; margin-left:0.5rem;" class="remove_field">Remove</a></div>'); //add input box
-		}
+			
+            $(wrapper).append('<div><input style= "display: inline-block; width: 25%; margin-bottom: 0.5rem;" class="form-control" type="text"  name="mytext[]"/><a href="#" style="display: inline-block; margin-left:0.5rem;" class="remove_field">Remove</a></div>'); //add input box
+            $(wrapper).find('input[type=text]:last').autocomplete({
+                source: function( request, response ) {
+                    $.ajax({
+                        url: "autocompl.php",
+                        dataType: "json",
+                        data: {
+                            q: request.term
+                        },
+                        success: function( data ) {
+                            response( data );
+                            return data;
+                        }
+                    });
+                
+                },
+                minLength:0
+            });	
+        }
 	});
 	
 	$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
 		e.preventDefault(); $(this).parent('div').remove(); x--;
 	    })
+
     });
+
+	$(function() {
+			$("input[name^='mytext']").autocomplete({
+                source: function( request, response ) {
+                    $.ajax({
+                        url: "autocompl.php",
+                        dataType: "json",
+                        data: {
+                            q: request.term
+                        },
+                        success: function( data ) {
+                            response( data );
+                            return data;
+                        }
+                    });
+                
+                },
+                minLength:0
+                //source: manufacturers
+            });
+                
+       });
+
 </script>
 </html>
 
