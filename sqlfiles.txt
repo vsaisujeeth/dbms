@@ -80,15 +80,8 @@ references faculty(faculty_id));
 
 create table admin(
 faculty_id varchar(30),
-<<<<<<< HEAD
 password varchar(50)
 );
-||||||| merged common ancestors
-password varchar(50),
-foreign key(faculty_id) references faculty(faculty_id));
-=======
-password varchar(50));
->>>>>>> 335dd20ce98fddf86171ddb3232271baab39db21
 ------------------------------------------------------------------------------------------------------------------------
 
 insert into departments values('Computer Science'),
