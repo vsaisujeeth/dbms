@@ -8,6 +8,7 @@ name varchar(30) not null,
 department varchar(30) not null,
 ph_no varchar(30) not null,
 email varchar(30) not null,
+joinedon date,
 primary key(faculty_id),
 foreign key(department) 
 references departments(dept_name));
@@ -79,8 +80,15 @@ references faculty(faculty_id));
 
 create table admin(
 faculty_id varchar(30),
+<<<<<<< HEAD
 password varchar(50)
 );
+||||||| merged common ancestors
+password varchar(50),
+foreign key(faculty_id) references faculty(faculty_id));
+=======
+password varchar(50));
+>>>>>>> 335dd20ce98fddf86171ddb3232271baab39db21
 ------------------------------------------------------------------------------------------------------------------------
 
 insert into departments values('Computer Science'),
@@ -88,12 +96,11 @@ insert into departments values('Computer Science'),
 ('Mechanical'),('Civil'),('Chemical');
 ----------------------------------------------------------------------------------------------------------------------
 insert into faculty values
-('1701CS01','badrinath','Computer Science',1111111111,'bad@gmail.com'),
-('1701CS02','dhanvanth','Civil',1111111112,'dhn@gmail.com'),
-('1701CS03','vijigiri','Chemical',1111111113,'vij@gmail.com'),
-('1701CS04','sujeeth','Electrical',1111111114,'suj@gmail.com'),
-('1701CS05','sagar','Mechanical',1111111115,'sag@gmail.com');
-
+('1701CS01','badrinath','Computer Science',1111111111,'bad@gmail.com','2008-03-08'),
+('1701CS02','dhanvanth','Civil',1111111112,'dhn@gmail.com','2009-04-05'),
+('1701CS03','vijigiri','Chemical',1111111113,'vij@gmail.com','2010-05-04'),
+('1701CS04','sujeeth','Electrical',1111111114,'suj@gmail.com','2011-08-22'),
+('1701CS05','sagar','Mechanical',1111111115,'sag@gmail.com','2012-03-21');
 ------------------------------------------------------------------------------------------------------
 insert into projects values
 ('pr001','project1','2000-02-01','2000-03-02',332434,'topic1','sponsor1'),
