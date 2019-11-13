@@ -79,8 +79,8 @@ references faculty(faculty_id));
 
 create table admin(
 faculty_id varchar(30),
-password varchar(50),
-foreign key(faculty_id) references faculty(faculty_id));
+password varchar(50)
+);
 ------------------------------------------------------------------------------------------------------------------------
 
 insert into departments values('Computer Science'),
@@ -93,6 +93,7 @@ insert into faculty values
 ('1701CS03','vijigiri','Chemical',1111111113,'vij@gmail.com'),
 ('1701CS04','sujeeth','Electrical',1111111114,'suj@gmail.com'),
 ('1701CS05','sagar','Mechanical',1111111115,'sag@gmail.com');
+
 ------------------------------------------------------------------------------------------------------
 insert into projects values
 ('pr001','project1','2000-02-01','2000-03-02',332434,'topic1','sponsor1'),
@@ -146,6 +147,7 @@ insert into published_jour_by values
 ('pub004','1701CS02','secondary');
 ----------------------------------------------------------------------------------------------------------------
  insert into admin values
+ ('admin','admin'),
 ('1701CS01','badrinath01'),
 ('1701CS02','dhanvanth02'),
 ('1701CS03','vijigiri03'),
