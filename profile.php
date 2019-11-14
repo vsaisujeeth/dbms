@@ -36,6 +36,7 @@
         
     
     </style>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
 <hr>
@@ -314,7 +315,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div id="similar_journal" > 
+                                            <div id="similar_conference" > 
                                                             <!-- THis is to add table -->
                                             </div>
                                             
@@ -425,7 +426,7 @@
                                                             ?>
                                                         </select>
                                                     </div>
-                                                    <div id="similar_conference" > 
+                                                    <div id="similar_journal" > 
                                                             <!-- THis is to add table -->
                                                     </div>
                                                 <div class="form-group">
