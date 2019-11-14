@@ -22,7 +22,7 @@ if ( ! empty( $_POST ) ) {
             // echo("shit");
             if($user->faculty_id == "admin")
             {
-                header("Location: ../admin.html");
+                header("Location: ../admin.php");
             }
             else{
 

@@ -44,13 +44,14 @@ $(document).ready(function(){
            });
     }
 
-    $('#p_search_text').keydown(function(){ 
+    $('#p_search_text').keypress(function(e){ 
      var search = $(this).val();
-     if(search != '')
-     {
-        p_load_data(search);
-     }
-     console.log("entered");
+         if(e.which ==13)
+         {
+             p_load_data(search);
+             console.log("entered efdsfddf:"+search);
+        }
+    
      
     });
     $('#j_search_text').keydown(function(){

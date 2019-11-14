@@ -1,10 +1,21 @@
+<?php
+    $log_status;
+     session_start();
+     if(empty($_SESSION['user_id'])){
+         $log_status =0;
+     }
+     else{
+        $log_status =1;
+     }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from https://bootdey.com  -->
     <!--  All snippets are MIT license https://bootdey.com/license -->
-    <title>Bootdey.com</title>
+    <title>Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +28,19 @@
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10">
-            <h1>Explore</h1>
+            <h1>Explore
+            <?php
+                if($log_status==1)
+                {
+                    echo'<h5 style="margin:0.5rem; color: rgb(255,0,0);display: inline-block;"><a style="color: rgb(255,0,0);" href="php/logout.php">Logout</a><h5>';
+                    echo'<h5 style="margin:0.5rem; display: inline-block;"><a href="profile.php">Go to profile</a><h5>';
+                }
+                else{
+                    echo'<h5 style="margin:0.5rem; display: inline-block;"><a href="login.html">Login</a><h5>';
+ 
+                }
+            ?>
+            </h1>
         </div>
         <div class="col-sm-2">
             <a class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Indian_Institute_of_Technology%2C_Patna.svg/345px-Indian_Institute_of_Technology%2C_Patna.svg.png"></a>

@@ -1,7 +1,10 @@
 <?php
     session_start();
     $connect = mysqli_connect("localhost", "root", "", "dbms");
-   
+    if ($_SESSION['user_id'] ==null) {
+    header('Location: login.html');
+    exit();
+    }
 
 ?>
 <!DOCTYPE html>
@@ -33,16 +36,18 @@
         
     
     </style>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10">
-            <h1>
+            <h1 style="display: inline-block;">
                 <?php
                      echo($_SESSION['user_id']);
                 ?>
+                <h5 style="margin:0.5rem; color: rgb(255,0,0);display: inline-block;"><a style="color: rgb(255,0,0);" href="php/logout.php">Logout</a><h5>
             </h1>
             <p style="margin: 1rem;"> 
                 <?php
@@ -77,6 +82,15 @@
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Conference</strong></span><?php echo($_SESSION['conf_count']) ?> </li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Journals</strong></span> <?php echo($_SESSION['jour_count']) ?></li>
             </ul>
+
+            <a href="search.php">
+                <ul class="list-group">
+                    <li class="list-group-item text-muted">Explore <i style="margin:0.5rem;" class='fas fa-external-link-alt'></i> <i class="fa fa-dashboard fa-1x"></i></li>
+                    
+                </ul>
+                
+            </a>
+            
 
 
         </div>
