@@ -26,17 +26,26 @@
     // $sql = "select count(*) as total from projects";
     // $res= $conn->query($sql);
 
-    $sql1 = "INSERT INTO conference VALUES('pub001','$name','$year','$spage','$epage','$topic','$conf_link','$conf_name','$month')";
+    $sql1 = "INSERT INTO conference(name,p_year,end_page,start_page,topic,conference_link,conference_name,p_month) VALUES ('$name',$year,'$spage','$epage','$topic','$conf_link','$conf_name','$month')";
     if($res= $conn->query($sql1))
     {
-        echo "inserted  new   user   successfully";
+        echo "inserted  new   conference   successfully";
     }else
     {
         echo "error";
     }
-    echo("ygdehf");
-    echo ($_SESSION['user_id']);
-    $sql ="INSERT INTO published_conf_by VALUES('pr008',".$_SESSION['user_id'].",'head')";
+
+    $last_id;
+    $sql1 = "select LAST_INSERT_ID() as last";
+    $result1 = $conn->query($sql1);
+    if($result1)
+    {
+        $row = $result1->fetch_assoc();
+        $last_id = $row['last'];
+    }
+    // echo("ygdehf");
+    // echo ($_SESSION['user_id']);
+    $sql ="INSERT INTO published_conf_by VALUES('$last_id','".$_SESSION['user_id']."','head')";
     if($res= $conn->query($sql))
     {
     }else{ 
@@ -45,7 +54,7 @@
 
     foreach($faculty as $value)
     {
-        $sql ="INSERT INTO worked_on VALUES('pr008','$value','head')";
+        $sql ="INSERT INTO published_conf_by VALUES('$last_id','$value','head')";
         if($value!=$_SESSION['user_id'] && $res= $conn->query($sql))
         {
         }else{

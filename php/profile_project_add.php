@@ -19,31 +19,42 @@
 
     // $sql = "select count(*) as total from projects";
     // $res= $conn->query($sql);
-
-    $sql1 = "INSERT INTO projects VALUES('pr008','$name','$sdate','$edate','$budget','$topic','$sponsor')";
+    //insert into projects(name,start_date,end_date,budget,topic,sponsor)values('project 4','2001-3-03','2003-4-05',2345,'dcvfd','sbi');
+    $sql1 = "insert into projects(name,start_date,end_date,budget,topic,sponsor) values ('$name','$sdate','$edate','$budget','$topic','$sponsor')";
     if($res= $conn->query($sql1))
     {
-        echo "inserted  new   user   successfully";
+        echo "inserted  new   project   successfully";
     }else
     {
         echo "error";
     }
-    echo("ygdehf");
-    echo ($_SESSION['user_id']);
-    $sql ="INSERT INTO worked_on VALUES('pr008',".$_SESSION['user_id'].",'head')";
+
+    $last_id;
+    $sql1 = "select LAST_INSERT_ID() as last";
+    $result1 = $conn->query($sql1);
+    if($result1)
+    {
+        $row = $result1->fetch_assoc();
+        $last_id = $row['last'];
+    }
+    // echo("ygdehf");
+    //echo ($_SESSION['user_id']);
+    $sql ="INSERT INTO worked_on VALUES('$last_id','".$_SESSION['user_id']."','head')";
     if($res= $conn->query($sql))
     {
     }else{
-        echo "Error in adding fac";
+        echo ("error1");
+        echo ($conn->error);
     }
 
     foreach($faculty as $value)
     {
-        $sql ="INSERT INTO worked_on VALUES('pr008','$value','head')";
+        $sql ="INSERT INTO worked_on VALUES('$last_id','$value','head')";
         if($value!=$_SESSION['user_id'] && $res= $conn->query($sql))
         {
         }else{
-            echo "Error in adding fac";
+            error("error2");
+            echo ($conn->error);
         }
 
     } 

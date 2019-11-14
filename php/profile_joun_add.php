@@ -19,30 +19,30 @@
     
     $conn = new mysqli("localhost","root","","dbms");
    
-    // $sdate=str_replace('/','-',$sdate);
-    // $edate=str_replace('/','-',$edate);
-    //echo "$edate";
-
-    //echo($date);
-
-    // $sql = "select count(*) as total from projects";
-    // $res= $conn->query($sql);
-
-    $sql1 = "INSERT INTO journal VALUES('pub006','$name','$year','$epage','$spage','$topic','$conf_link','$jour_name','$volume','$issue')";
+    $sql1 = "INSERT INTO journal(name,p_year,end_page,start_page,topic,journal_link,journal_name,volume,issue_no) VALUES('$name','$year','$epage','$spage','$topic','$conf_link','$jour_name','$volume','$issue')";
     if($res= $conn->query($sql1))
     {
-        echo "inserted  new   user   successfully";
+        echo "inserted  new   journal   successfully";
     }else
     {
         echo"errooer";
         echo ($conn->error);
     }
+
+    $last_id;
+    $sql1 = "select LAST_INSERT_ID() as last";
+    $result1 = $conn->query($sql1);
+    if($result1)
+    {
+        $row = $result1->fetch_assoc();
+        $last_id = $row['last'];
+    }
     
-    echo ($_SESSION['user_id']);
-    $sql ="INSERT INTO published_jour_by VALUES('pub006','".$_SESSION['user_id']."','head')";
+    //echo ($_SESSION['user_id']);
+    $sql ="INSERT INTO published_jour_by VALUES('$last_id','".$_SESSION['user_id']."','head')";
     if($res= $conn->query($sql))
     {
-        echo("success");
+        echo("<br>success");
     }else{ 
         echo "Error in adding fac1";
         echo ($conn->error);
@@ -50,7 +50,7 @@
 
     foreach($faculty as $value)
     {
-        $sql ="INSERT INTO published_jour_by VALUES('pub006','$value','head')";
+        $sql ="INSERT INTO published_jour_by VALUES('$last_id','$value','head')";
         if($value!=$_SESSION['user_id'] && $res= $conn->query($sql))
         {
         }else{
@@ -59,9 +59,5 @@
         }
 
     } 
-    // $sql2 = "INSERT INTO admin VALUES('$fid','$pass')";
-    // $res= $conn->query($sql1);
-    // if($res&&$conn->query($sql2))
-
 
 ?>

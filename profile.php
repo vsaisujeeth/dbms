@@ -306,7 +306,7 @@
                         
                                                     <div class="col-xs-6">
                                                         <label for="conf_month">
-                                                            <h4>Name</h4></label>
+                                                            <h4>Month</h4></label>
                                                         <input type="number" class="form-control" name="conf_month" id="connameid" placeholder="conference publication name" title="enter month of conference ">
                                                     </div>
                                                 </div>
@@ -404,7 +404,7 @@
                                                     <div class="col-xs-6">
                                                         <label for="startpage">
                                                             <h4>StartPage</h4></label>
-                                                        <input type="text" class="form-control" name="startpage" id="startpageid" placeholder="startpage" title="enter the starting page of your conference publication">
+                                                        <input type="text" class="form-control" name="startpage" id="startpageid" placeholder="starting page" title="enter the starting page of your conference publication">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -434,7 +434,7 @@
                                                     <div class="col-xs-6">
                                                         <label for="jour_name">
                                                             <h4>Journal Name</h4></label>
-                                                        <input type="text" class="form-control" name="jour_name"  placeholder="Issue no" title="enter the name of the journal publication">
+                                                        <input type="text" class="form-control" name="jour_name"  placeholder=" Name of the journal" title="enter the name of the journal publication">
                                                     </div>
                                                 </div>
 
