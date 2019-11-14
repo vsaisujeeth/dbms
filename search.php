@@ -20,7 +20,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
-    	body{margin-top:20px;}                                                                    
+    	body{margin-top:20px;}
+                                                                            
     </style>
 </head>
 <body>
@@ -54,6 +55,7 @@
                 <li class="active"><a href="#project" data-toggle="tab">Projects</a></li>
                 <li><a href="#journal" data-toggle="tab">Journal</a></li>
                 <li><a href="#conference" data-toggle="tab">Conference</a></li>
+                <li><a href="#trends" data-toggle="tab">Trends</a></li>
             </ul>
 
             <div class="tab-content">
@@ -122,6 +124,67 @@
                         
                     </div>
                 </div>
+                <div class="tab-pane" id="trends">
+                <div>
+                <br/>
+                                        
+                                       <button class="btn btn-info" type="submit" onclick="addyear()">Yearwisetrends</button>
+                                       <button class="btn btn-info" type="submit" onclick="addtopic() ">topicwisetrends</button>
+                </div>
+
+                <div id="year_result"></div>
+                    <div id="topic_result"></div>
+                  
+                    
+                    <!-- <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                  <th scope="col">topic</th>
+                                  <th scope="col">no.of projects</th>
+                                  <th scope="col">no.of publications</th>
+                                
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>blockchain</t>
+                                  <td>3</td>
+                                  <td>4</td>
+
+                                </tr>
+                              </tbody>
+                        </table>
+                        <hr> -->
+                        <!-- <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                  
+                                  <th scope="col">year</th>
+                                  <th scope="col">no.of projects</th>
+                                  <th scope="col">no.of  publications</th>
+                                
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>2017</t>
+                                  <td>3</td>
+                                  <td>4</td>
+                                </tr>
+                              </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4 text-center">
+                                <ul class="pagination" id="myPager"></ul>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-/table-resp-->
+
+                    <hr>
+
+                </div>
             
                 
         </div>
@@ -133,7 +196,30 @@
 <!--/row-->
 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script type="text/javascript"></script>
+<script type="text/javascript">
+function addyear()
+{
+    var x= document.getElementById("year_result");
+    if(x.style.display=="block"){
+        x.style.display="block";
+    }else {
+        x.style.display ="block";
+        document.getElementById("topic_result").style.display="none";
+    }
+
+}
+function addtopic()
+{
+    var x= document.getElementById("topic_result");
+    if(x.style.display=="block"){
+        x.style.display="block";
+    }else {
+        x.style.display ="block";
+        document.getElementById("year_result").style.display="none";
+    }
+} 
+
+</script>
 <script src="scripts/search.js"></script>
 </body>
 </html>
