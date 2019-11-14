@@ -12,8 +12,11 @@
     $epage=$_POST['endpage'];
     $topic=$_POST['topic'];
     $conf_link=$_POST['conferencelink'];
-    $faculty = $_POST['faculty'];
-
+    $faculty = array();
+    if(!empty($_POST['faculty']))
+    {
+        $faculty= $_POST['faculty'];
+    }
     
     $conn = new mysqli("localhost","root","","dbms");
    

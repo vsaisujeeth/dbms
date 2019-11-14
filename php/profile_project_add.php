@@ -7,7 +7,11 @@
     $budget=$_POST['budget'];
     $topic=$_POST['topic'];
     $sponsor=$_POST['sponsor'];
-    $faculty=$_POST['faculty'];
+    $faculty = array();
+    if(!empty($_POST['faculty']))
+    {
+        $faculty= $_POST['faculty'];
+    }
     
     $conn = new mysqli("localhost","root","","dbms");
    

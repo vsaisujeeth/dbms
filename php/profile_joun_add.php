@@ -14,8 +14,11 @@
     $jour_name =$_POST['jour_name'];
     $volume = $_POST['volume'];
     $issue = $_POST['issueno'];
-    $faculty = $_POST['faculty'];
-
+    $faculty = array();
+    if(!empty($_POST['faculty']))
+    {
+        $faculty= $_POST['faculty'];
+    }
     
     $conn = new mysqli("localhost","root","","dbms");
    
