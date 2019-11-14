@@ -314,10 +314,10 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div id="similar_journal" > 
+                                            <div id="similar_conference" > 
                                                             <!-- THis is to add table -->
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <br>
@@ -425,7 +425,7 @@
                                                             ?>
                                                         </select>
                                                     </div>
-                                                    <div id="similar_conference" > 
+                                                    <div id="similar_journal" > 
                                                             <!-- THis is to add table -->
                                                     </div>
                                                 <div class="form-group">

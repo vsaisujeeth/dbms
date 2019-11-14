@@ -52,7 +52,7 @@ $(document).ready(function(){
            var search = $(this).val();
            if(search != '')
            {
-              j1_load_data(search);
+              c1_load_data(search);
            }
            
           });
@@ -60,7 +60,7 @@ $(document).ready(function(){
            var search = $(this).val();
            if(search != '')
            {
-             c1_load_data(search);
+             j1_load_data(search);
            }
            
           });
