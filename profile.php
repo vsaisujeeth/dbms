@@ -85,12 +85,16 @@
 
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active"><a href="#project" data-toggle="tab">Projects</a></li>
-                <li><a href="#publications" data-toggle="tab">Publications</a></li>
+                <li><a href="#conferences" data-toggle="tab">Conferences</a></li>
+                <li><a href="#journals" data-toggle="tab" on>Journals</a></li>
                 <li><a href="#add" data-toggle="tab" on>Add New</a></li>
+                
+
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="project">
-                    <div class="table-responsive">
+                    <div id="profile_project_result"></div>
+                    <!-- <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -135,16 +139,17 @@
                                 <ul class="pagination" id="myPager"></ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!--/table-resp-->
 
                     <hr>
 
                 </div>
                 <!--/tab-pane-->
-                <div class="tab-pane" id="publications">
+                <div class="tab-pane" id="conferences">
                     <div class="container">
-                        <div class="row">
+                        <div id="profile_conf_result"></div>
+                        <!-- <div class="row">
                             <div class="col-12 col-sm-8 col-lg-10">
                                 <h6 class="text-muted">Conference</h6> 
                                 <ul class="list-group">
@@ -156,7 +161,27 @@
                                     </a>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
+                    </div>
+
+                    
+                </div>
+                <div class="tab-pane" id="journals">
+                    <div class="container">
+                        <div id="profile_journal_result"></div>
+                        <!-- <div class="row">
+                            <div class="col-12 col-sm-8 col-lg-10">
+                                <h6 class="text-muted">Conference</h6> 
+                                <ul class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                        <div class="flex-column">
+                                         <h5><b>Non-delusional Q-learning and value-iteration</b></h5>
+                                          <p><b>Tyler Lu, Dale Schuurmans, Craig Boutilier</b>, <i>Proceedings of the Thirty-second Conference on Neural Information Processing Systems (NeurIPS-18), Montreal, QC (2018), pp. 9971-9981</i></p>
+                                        </div>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div> -->
                     </div>
 
                     
@@ -506,5 +531,6 @@ function addjournal()
     }
 }                         
 </script>
+<script src="scripts/profile.js"></script>
 </body>
 </html>
