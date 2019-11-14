@@ -116,19 +116,7 @@
 
                         <div class="container">
                             <div id="conf_result"></div>
-                            <!-- <div class="row">
-                                <div class="col-12 col-sm-8 col-lg-10">
-                                    <h6 class="text-muted">Conference</h6> 
-                                    <ul class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                            <div class="flex-column">
-                                             <h5><b>Non-delusional dwefesds and value-iteration</b></h5>
-                                              <p><b>Tyler Lu, Dale Schuurmans, Craig Boutilier</b>, <i>Proceedings of the Thirty-second Conference on Neural Information Processing Systems (NeurIPS-18), Montreal, QC (2018), pp. 9971-9981</i></p>
-                                            </div>
-                                        </a>
-                                    </ul>
-                                </div>
-                            </div> -->
+                        
                         </div>
     
                         
@@ -137,7 +125,7 @@
             
                 
         </div>
-        <!--/tab-content-->
+        <!--/tab-content--> 
 
     </div>
     <!--/col-9-->
