@@ -3,6 +3,9 @@ $(document).ready(function(){
     p_load_data();
     j_load_data();
     c_load_data();
+    y_load_data();
+    t_load_data();
+
 
     function p_load_data(query)
     {
@@ -43,7 +46,32 @@ $(document).ready(function(){
             }
            });
     }
-
+    function t_load_data(query)
+    {
+        $.ajax({
+            url:"php/topic_fetch.php",
+            method:"POST",
+            data:{query:query},
+            success:function(data)
+            {
+                console.log(data);
+             $('#topic_result').html(data);
+            }
+           });
+    }
+    function y_load_data(query)
+    {
+        $.ajax({
+            url:"php/year_fetch.php",
+            method:"POST",
+            data:{query:query},
+            success:function(data)
+            {
+                console.log(data);
+             $('#year_result').html(data);
+            }
+           });
+    }
     $('#p_search_text').keypress(function(e){ 
      var search = $(this).val();
          if(e.which ==13)

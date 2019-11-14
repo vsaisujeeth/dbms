@@ -8,7 +8,7 @@ if(isset($_POST["query"]))
  $search = mysqli_real_escape_string($connect, $_POST["query"]);
  //$search = "project";
  $query = "
-  SELECT * FROM projects 
+  SELECT * FROM projects
   WHERE proj_id LIKE '%".$search."%'
   OR name LIKE '%".$search."%' 
   OR topic LIKE '%".$search."%' 
@@ -22,6 +22,7 @@ else
  ";
 }
 $result = mysqli_query($connect, $query);
+if($result)
 if(mysqli_num_rows($result) > 0)
 {
 
