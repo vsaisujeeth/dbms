@@ -318,7 +318,7 @@
                                             <div id="similar_conference" > 
                                                             <!-- THis is to add table -->
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <div class="col-xs-12">
                                                     <br>

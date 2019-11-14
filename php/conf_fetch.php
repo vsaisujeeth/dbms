@@ -27,15 +27,16 @@ else
 $result = mysqli_query($connect, $query);
 if($result)
 {
+      $output .= '
+      <div class="row">
+      <div class="col-12 col-sm-8 col-lg-10">
+          <h6 class="text-muted">Conference</h6> 
+          <ul class="list-group">
+    ';
       if(mysqli_num_rows($result) > 0)
       {
 
-          $output .= '
-          <div class="row">
-          <div class="col-12 col-sm-8 col-lg-10">
-              <h6 class="text-muted">Conference</h6> 
-              <ul class="list-group">
-        ';
+         
       while($row = mysqli_fetch_array($result))
       {
           
@@ -53,11 +54,7 @@ if($result)
         ';
         
       }
-      $output .= '
-      </ul>
-      </div>
-      </div>
-      ';
+     
 
       echo $output;
       }
@@ -65,6 +62,11 @@ if($result)
       {
       echo 'Data Not Found';
       }
+      $output .= '
+      </ul>
+      </div>
+      </div>
+      ';
 }
 
 
