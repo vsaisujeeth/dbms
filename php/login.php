@@ -10,8 +10,10 @@ if ( ! empty( $_POST ) ) {
         $stmt->bind_param('s', $_POST['username']);
         $stmt->execute();
         $result = $stmt->get_result();
-    	$user = $result->fetch_object();
         
+    	$user = $result->fetch_object();
+        if($user)
+        {
         
         // Verify user password and set $_SESSION
         // echo($_POST['password']);
@@ -68,5 +70,11 @@ if ( ! empty( $_POST ) ) {
             echo("<h5>wrong password or username<h5>");
         }
     }
+    else
+    {
+        echo("wrong password or username");
+    }
+    }
 }
+
 ?>

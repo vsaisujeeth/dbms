@@ -449,7 +449,7 @@
                 <div class="tab-pane" id="delete">
                     <div class="container ">
                     <div class="col-xs-9">
-                    <form class="form" action="php/profile_conf_add.php" method="post" id="deleteform">
+                    <form class="form" action="php/delete.php" method="post" id="deleteform">
                         <div class="form-group">
 
                             <div class="col-xs-6">

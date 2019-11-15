@@ -34,6 +34,7 @@
         <div class="row">
                 <div class="col-sm-10">
                     <h1>Admin
+                    <h5 style="margin:0.5rem; color: rgb(255,0,0);display: inline-block;"><a style="color: rgb(0,0,255);" href="search.php">Explore </a><h5>
                     <h5 style="margin:0.5rem; color: rgb(255,0,0);display: inline-block;"><a style="color: rgb(255,0,0);" href="php/logout.php">Logout</a><h5>
                     </h1>
                 </div>
@@ -46,6 +47,8 @@
                 <li ><a href="#adduser" data-toggle="tab">AddUser</a></li>
                 <li ><a href="#adddept" data-toggle="tab">AddDepartment</a></li>
                 <li ><a href="#remuser" data-toggle="tab">RemoveUser</a></li>
+                <li ><a href="#delete" data-toggle="tab" onclick=showdelete()>Delete</a></li>
+                
         
             </ul>
             <div class="tab-content">
@@ -107,6 +110,45 @@
                         </div>
                 </div>
         </div>
+        <div class="tab-pane" id="delete">
+                    <div class="container ">
+                    <div class="col-xs-9">
+                    <form class="form" action="php/admin_delete.php" method="post" id="deleteform">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="delProj">
+                                    <h4>Project Id</h4></label>
+                                <input type="text" class="form-control" name="delProj" placeholder="project ID" title="enter  Id of project to be deleted">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="delConf">
+                                    <h4>Coference Id</h4></label>
+                                <input type="text" class="form-control" name="delConf"  placeholder="conference publication ID"  title="enter Id of Conference publication to be deleted">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="delJour">
+                                    <h4>Journal Id</h4></label>
+                                <input type="number" class="form-control" name="delJour"  placeholder="Journal publication ID"  title="enter Id of Journal publication to be deleted">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-danger" type="submit"> Delete</button>
+                            </div>
+                        </div>                       
+                    </form>
+                    </div>
+                    </div>
+                </div>
                 <div class="tab-pane active" id="adduser">
                     <div class="container">
                             <div class="row">
@@ -183,6 +225,7 @@
                                </div>
                             </div>
                     </div>
+                    
             </div>
             </div>
     </div>

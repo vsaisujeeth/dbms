@@ -33,8 +33,11 @@
             <?php
                 if($log_status==1)
                 {
-                    echo'<h5 style="margin:0.5rem; color: rgb(255,0,0);display: inline-block;"><a style="color: rgb(255,0,0);" href="php/logout.php">Logout</a><h5>';
+                    if($_SESSION['user_id']!="admin")
+                    //echo'<h5 style="margin:0.5rem; color: rgb(255,0,0);display: inline-block;"><a style="color: rgb(255,0,0);" href="php/logout.php">Logout</a><h5>';
                     echo'<h5 style="margin:0.5rem; display: inline-block;"><a href="profile.php">Go to profile</a><h5>';
+                    else
+                    echo'<h5 style="margin:0.5rem; display: inline-block;"><a href="admin.php">Go back</a><h5>';
                 }
                 else{
                     echo'<h5 style="margin:0.5rem; display: inline-block;"><a href="login.html">Login</a><h5>';
@@ -63,7 +66,7 @@
                     <div style="margin: 1rem; " class="form-group">
                         <div class="input-group">
                          <span class="input-group-addon">Search</span>
-                         <input type="text" name="p_search_text" id="p_search_text" placeholder="Search for a project" class="form-control" />
+                         <input type="text" name="p_search_text" id="p_search_text" placeholder="Search for a project by 'project title' or 'topic' or 'sponsor'" class="form-control" />
                         </div>
                     </div>
                     
@@ -82,7 +85,7 @@
                         <div style="margin: 1rem; " class="form-group">
                             <div class="input-group">
                              <span class="input-group-addon">Search</span>
-                             <input type="text" name="j_search_text" id="j_search_text" placeholder="Search for a Journal" class="form-control" />
+                             <input type="text" name="j_search_text" id="j_search_text" placeholder="Search for a Journal by journal by 'journal name' or 'topic' or 'name' or 'journal link' " class="form-control" />
                             </div>
                         </div>
 
@@ -112,7 +115,7 @@
                         <div style="margin: 1rem; " class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon">Search</span>
-                                <input type="text" name="c_search_text" id="c_search_text" placeholder="Search for a conference paper" class="form-control" />
+                                <input type="text" name="c_search_text" id="c_search_text" placeholder="Search for a conference paper by 'conference name' or 'name' or 'topic' or 'conference publication link'" class="form-control" />
                             </div>
                         </div>
 

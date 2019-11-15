@@ -6,7 +6,7 @@ session_start();
  $conn = new mysqli("localhost","root","","dbms");
  if(!empty($prid))
  {
- $sql= "SELECT * FROM worked_on WHERE proj_id='$prid' AND faculty_id='".$_SESSION['user_id']."'";
+ $sql= "SELECT * FROM worked_on WHERE proj_id='$prid'";
  $result = $conn->query($sql); 
 if($result->num_rows>0)
  {
@@ -19,12 +19,12 @@ if($result->num_rows>0)
  else 
  {
     
-    echo "project not found or you are not a part of the entered project<br>";
+    echo "project not found<br>";
  }
 }
  if(!empty($conid))
  {
- $sql= "SELECT * FROM published_conf_by WHERE pub_id='$conid' AND faculty_id='".$_SESSION['user_id']."'";
+ $sql= "SELECT * FROM published_conf_by WHERE pub_id='$conid'";
  $result = $conn->query($sql); 
 if($result->num_rows>0)
  {
@@ -37,12 +37,12 @@ if($result->num_rows>0)
  else 
  {
     
-    echo "conference not found or you are not a part of the entered conference publication<br>";
+    echo "conference not found<br>";
  }
 }
  if(!empty($jourid))
  {
- $sql= "SELECT * FROM published_jour_by WHERE pub_id='$jourid' AND faculty_id='".$_SESSION['user_id']."'";
+ $sql= "SELECT * FROM published_jour_by WHERE pub_id='$jourid'";
  $result = $conn->query($sql); 
 if($result->num_rows>0)
  {
@@ -55,7 +55,7 @@ if($result->num_rows>0)
  else 
  {
     
-    echo "journal not found or you are not a part of the entered journal publication<br>";
+    echo "journal not found<br>";
  }
 }
 ?>
