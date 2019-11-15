@@ -17,7 +17,7 @@ if(mysqli_num_rows($result) > 0)
      <table class="table table bordered">
      <thead>
      <tr>
-       <th scope="col">#</th>
+       <th scope="col">project id</th>
        <th scope="col">Project Title</th>
        <th scope="col">People</th>
        <th scope="col">sponsor</th>

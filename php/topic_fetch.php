@@ -2,6 +2,8 @@
 //fetch.php
 $connect = mysqli_connect("localhost", "root", "", "dbms");
 $output = '';
+$output1 = '';
+$output2 ='' ;
 // if(isset($_POST["query"]))
 // //if(1)
 // {
@@ -18,7 +20,7 @@ $output = '';
 // else
 {
  $query = "
- SELECT projects.topic,count(proj_id) as pr,count(conference.pub_id) as conf,count(journal.pub_id) as jou FROM projects,conference,journal WHERE projects.topic=conference.topic AND conference.topic=journal.topic GROUP BY(topic)
+ select topic,count(proj_id) from projects  group by(projects.topic);
  ";
 }
 $result = mysqli_query($connect, $query);
@@ -33,8 +35,6 @@ if(mysqli_num_rows($result) > 0)
      <tr>
        <th scope="col">topic</th>
        <th scope="col">no.of projects</th>
-       <th scope="col">no.of conference publications</th>
-       <th scope="col">no.of journal publications</th>
      </tr>
    </thead>
    <tbody>
@@ -45,9 +45,7 @@ if(mysqli_num_rows($result) > 0)
   $output .= '
    <tr>
     <td>'.$row["topic"].'</td>
-    <td>'.$row["pr"].'</td>
-    <td>'.$row["conf"].'</td>
-    <td>'.$row["jou"].'</td>
+    <td>'.$row["count(proj_id)"].'</td>
    </tr>
   ';
   
@@ -70,5 +68,104 @@ else
 {
  echo 'Data Not Found';
 }
-
+{
+  $query1 = "
+  select topic,count(pub_id) from conference  group by(topic);
+  ";
+ }
+ $result1 = mysqli_query($connect, $query1);
+ if($result1)
+ if(mysqli_num_rows($result1) > 0)
+ {
+ 
+     $output1 .= '
+     <div class="table-responsive">
+      <table class="table table hover">
+      <thead>
+      <tr>
+        <th scope="col">topic</th>
+        <th scope="col">no.of conference publications</th>
+      </tr>
+    </thead>
+    <tbody>
+    ';
+  while($row1 = mysqli_fetch_array($result1))
+  {
+     
+   $output1 .= '
+    <tr>
+     <td>'.$row1["topic"].'</td>
+     <td>'.$row1["count(pub_id)"].'</td>
+    </tr>
+   ';
+   
+  }
+  $output1 .= '
+   </tbody>
+   </table>
+   <hr>
+   <div class="row">
+       <div class="col-md-4 col-md-offset-4 text-center">
+           <ul class="pagination" id="myPager"></ul>
+       </div>
+   </div>
+ </div>
+  ';
+ 
+  echo $output1;
+ }
+ else
+ {
+  echo 'Data Not Found';
+ }
+ {
+  $query2 = "
+  select topic,count(pub_id) from journal  group by(topic);
+  ";
+ }
+ $result2 = mysqli_query($connect, $query2);
+ if($result2)
+ if(mysqli_num_rows($result2) > 0)
+ {
+ 
+     $output2 .= '
+     <div class="table-responsive">
+      <table class="table table hover">
+      <thead>
+      <tr>
+        <th scope="col">topic</th>
+        <th scope="col">no.of journal publications</th>
+      </tr>
+    </thead>
+    <tbody>
+    ';
+  while($row2= mysqli_fetch_array($result2))
+  {
+     
+   $output2 .= '
+    <tr>
+     <td>'.$row2["topic"].'</td>
+     <td>'.$row2["count(pub_id)"].'</td>
+    </tr>
+   ';
+   
+  }
+  $output2.= '
+   </tbody>
+   </table>
+   <hr>
+   <div class="row">
+       <div class="col-md-4 col-md-offset-4 text-center">
+           <ul class="pagination" id="myPager"></ul>
+       </div>
+   </div>
+ </div>
+  ';
+ 
+  echo $output2;
+ }
+ else
+ {
+  echo 'Data Not Found';
+ }
 ?>

@@ -102,7 +102,7 @@
                 <li><a href="#conferences" data-toggle="tab">Conferences</a></li>
                 <li><a href="#journals" data-toggle="tab" on>Journals</a></li>
                 <li><a href="#add" data-toggle="tab" on>Add New</a></li>
-                
+                <li><a href="#delete" data-toggle="tab" on>Delete</a></li>                
 
             </ul>
             <div class="tab-content">
@@ -146,7 +146,7 @@
                                                     <div class="col-xs-6">
                                                         <label for="prname">
                                                             <h4>Name</h4></label>
-                                                        <input type="text" class="form-control" name="prname" id="prnameid" placeholder="name" title="enter your project name">
+                                                        <input type="text" class="form-control" name="prname" id="prnameid" placeholder="name" title="enter your project name" required>
                                                     </div>
                                                 </div>
                                             
@@ -154,35 +154,35 @@
                                                         <div class="col-xs-6">
                                                             <label for="start_date">
                                                                 <h4>StartDate</h4></label>
-                                                            <input type="date" class="form-control" name="start_date" id="start_dateid" placeholder="startdate" title="enter your project's start date">
+                                                            <input type="date" class="form-control" name="start_date" id="start_dateid" placeholder="startdate" title="enter your project's start date" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-xs-6">
                                                             <label for="end_date">
                                                                 <h4>EndDate</h4></label>
-                                                            <input type="date" class="form-control" name="end_date" id="end_dateid" placeholder="enddate" title="enter your project's enddate">
+                                                            <input type="date" class="form-control" name="end_date" id="end_dateid" placeholder="enddate" title="enter your project's enddate" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-xs-6">
                                                             <label for="budget">
                                                                 <h4>Budget</h4></label>
-                                                            <input type="text" class="form-control" name="budget" id="budgetid" placeholder="budget" title="enter your project's budget">
+                                                            <input type="text" class="form-control" name="budget" id="budgetid" placeholder="budget" title="enter your project's budget" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-xs-6">
                                                             <label for="topic">
                                                                 <h4>Topic</h4></label>
-                                                            <input type="text" class="form-control" name="topic" id="topicid" placeholder="topic" title="enter your project's topic">
+                                                            <input type="text" class="form-control" name="topic" id="topicid" placeholder="topic" title="enter your project's topic" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-xs-6">
                                                             <label for="sponsor">
                                                                 <h4>Sponsoring Organisation</h4></label>
-                                                            <input type="text" class="form-control" name="sponsor"id="sponsorid" placeholder="Organisation" title="enter sponsoring organisation">
+                                                            <input type="text" class="form-control" name="sponsor"id="sponsorid" placeholder="Organisation" title="enter sponsoring organisation" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group "> 
@@ -237,7 +237,7 @@
                                                 <div class="col-xs-6">
                                                     <label for="conname">
                                                         <h4>Name</h4></label>
-                                                    <input type="text" class="form-control" name="conname" id="connameid" placeholder="conference publication name" title="enter your conference Entry">
+                                                    <input type="text" class="form-control" name="conname" id="connameid" placeholder="conference publication name" title="enter your conference Entry" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -245,7 +245,7 @@
                                                 <div class="col-xs-6">
                                                     <label for="conf_name">
                                                         <h4>Coference Name</h4></label>
-                                                    <input type="text" class="form-control" name="conf_name"  placeholder="conference publication name" title="enter your conference name">
+                                                    <input type="text" class="form-control" name="conf_name"  placeholder="conference publication name" title="enter your conference name"required>
                                                 </div>
                                             </div>
 
@@ -254,7 +254,7 @@
                                                 <div class="col-xs-6">
                                                     <label for="conf_month">
                                                         <h4>Month</h4></label>
-                                                    <input type="number" class="form-control" name="conf_month"  placeholder="conference publication name" title="enter month of conference ">
+                                                    <input type="number" class="form-control" name="conf_month"  placeholder="conference publication name" title="enter month of conference "required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -262,28 +262,28 @@
                                                 <div class="col-xs-6">
                                                     <label for="confyear">
                                                         <h4>Conference Publication Year</h4></label>
-                                                    <input type="number" class="form-control" name="confyear" id="confyearid" placeholder="coference year" title="enter the year of conference">
+                                                    <input type="number" class="form-control" name="confyear" id="confyearid" placeholder="coference year" title="enter the year of conference"required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-6">
                                                     <label for="startpage">
                                                         <h4>StartPage</h4></label>
-                                                    <input type="number" class="form-control" name="startpage" id="startpageid" placeholder="startpage" title="enter the starting page of your conference publication">
+                                                    <input type="number" class="form-control" name="startpage" id="startpageid" placeholder="startpage" title="enter the starting page of your conference publication"required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-6">
                                                     <label for="endpage">
                                                         <h4>EndPage</h4></label>
-                                                    <input type="number" class="form-control" name="endpage" id="endpageid" placeholder="ending page" title="enter the ending page of your conference publication">
+                                                    <input type="number" class="form-control" name="endpage" id="endpageid" placeholder="ending page" title="enter the ending page of your conference publication"required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-xs-6">
                                                     <label for="topic">
                                                         <h4>Topic</h4></label>
-                                                    <input type="text" class="form-control" name= "topic"id="topicid" placeholder="conference topic" title="enter the conference publication topic">
+                                                    <input type="text" class="form-control" name= "topic"id="topicid" placeholder="conference topic" title="enter the conference publication topic"required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -341,7 +341,7 @@
                                                     <div class="col-xs-6">
                                                         <label for="jname">
                                                             <h4>Name</h4></label>
-                                                        <input type="text" class="form-control" name="jname" id="jnameid" placeholder="journal publication name" title="enter the name of your journal Entry">
+                                                        <input type="text" class="form-control" name="jname" id="jnameid" placeholder="journal publication name" title="enter the name of your journal Entry"required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -349,28 +349,28 @@
                                                     <div class="col-xs-6">
                                                         <label for="jyear">
                                                             <h4>Journal Year</h4></label>
-                                                        <input type="text" class="form-control" name="jyear" id="jyearid" placeholder="journal publication year" title="enter the year of your journal publication year">
+                                                        <input type="text" class="form-control" name="jyear" id="jyearid" placeholder="journal publication year" title="enter the year of your journal publication year"required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-6">
                                                         <label for="startpage">
                                                             <h4>StartPage</h4></label>
-                                                        <input type="text" class="form-control" name="startpage" id="startpageid" placeholder="starting page" title="enter the starting page of your conference publication">
+                                                        <input type="text" class="form-control" name="startpage" id="startpageid" placeholder="starting page" title="enter the starting page of your conference publication"required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-6">
                                                         <label for="endpage">
                                                             <h4>EndPage</h4></label>
-                                                        <input type="text" class="form-control" name="endpage" id="endpageid" placeholder="ending page" title="enter the ending page of your conference publication">
+                                                        <input type="text" class="form-control" name="endpage" id="endpageid" placeholder="ending page" title="enter the ending page of your conference publication"required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-6">
                                                         <label for="topic">
                                                             <h4>Topic</h4></label>
-                                                        <input type="text" class="form-control" name= "topic"id="topicid" placeholder="conference topic" title="enter the conference publication topic">
+                                                        <input type="text" class="form-control" name= "topic"id="topicid" placeholder="conference topic" title="enter the conference publication topic"required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -386,7 +386,7 @@
                                                     <div class="col-xs-6">
                                                         <label for="jour_name">
                                                             <h4>Journal Name</h4></label>
-                                                        <input type="text" class="form-control" name="jour_name"  placeholder=" Name of the journal" title="enter the name of the journal publication">
+                                                        <input type="text" class="form-control" name="jour_name"  placeholder=" Name of the journal" title="enter the name of the journal publication"required>
                                                     </div>
                                                 </div>
 
@@ -394,7 +394,7 @@
                                                     <div class="col-xs-6">
                                                         <label for="volume">
                                                             <h4>Volume</h4></label>
-                                                        <input type="text" class="form-control" name="volume" id="volumeid" placeholder="Volume no" title="enter the volume no of your journal publication">
+                                                        <input type="text" class="form-control" name="volume" id="volumeid" placeholder="Volume no" title="enter the volume no of your journal publication"required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -402,7 +402,7 @@
                                                     <div class="col-xs-6">
                                                         <label for="issueno">
                                                             <h4>IssueNo</h4></label>
-                                                        <input type="text" class="form-control" name="issueno" id="issuenoid" placeholder="Issue no" title="enter the issue no of the journal publication">
+                                                        <input type="text" class="form-control" name="issueno" id="issuenoid" placeholder="Issue no" title="enter the issue no of the journal publication"required>
                                                     </div>
                                                 </div>
                                                 

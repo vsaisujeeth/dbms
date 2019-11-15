@@ -41,17 +41,16 @@ if($result)
       {
           
         $output .= '
-        <a href="'.$row["conference_link"].'" style="margin: 0.5rem;" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-            <div class="flex-column">
-              <h5><b>'.$row["name"].'</b></h5>
-              <p>
-              <i>'.$row["topic"].'</i>
-              '.$row["conference_name"].' ConferencePub year: '.$row["p_year"].', ConferencePub month: '.$row["p_month"].' 
-              <p>'.$row["conference_link"].'</p>
-              </p>
-            </div>
-        </a>
-        ';
+  <a href="'.$row["conference_link"].'" style="margin: 0.5rem;" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+      <div class="flex-column">
+        <h5><b>Conference ID: </b>'.$row["pub_id"].'<p><b>Name: </b>'.$row["name"].'</h5>
+        <i>'.$row["topic"].'</i><br>
+        <b>Conference name:  </b>'.$row["conference_name"].'<br> <b> year: </b>'.$row["p_year"].', <b> month:</b> '.$row["p_month"].' 
+        <p>'.$row["conference_link"].'</p>
+        </p>
+      </div>
+  </a>
+  ';
         
       }
      

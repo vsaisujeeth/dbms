@@ -38,17 +38,16 @@ if($result = mysqli_query($connect, $query))
    {
       
     $output .= '
-    <a href="'.$row["journal_link"].'" style="margin: 0.5rem;" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        <div class="flex-column">
-          <h5><b>'.$row["name"].'</b></h5>
-          <p>
-          <i>'.$row["topic"].'</i>
-          '.$row["journal_name"].' volume No: '.$row["volume"].', Issue No: '.$row["issue_no"].' 
-          <p>'.$row["journal_link"].'</p>
-          </p>
-        </div>
-    </a>
-    ';
+  <a href="'.$row["journal_link"].'" style="margin: 0.5rem;" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+      <div class="flex-column">
+      <h5><b>Journal ID: </b>'.$row["pub_id"].'<br><p><b>Name: </b>'.$row["name"].'</h5>
+        <i>'.$row["topic"].'</i><br>
+        <b>Journal Name:</b> '.$row["journal_name"].'<br><b>Volume No: </b>'.$row["volume"].',<b> Issue No: </b>'.$row["issue_no"].' 
+        <p>'.$row["journal_link"].'</p>
+        </p>
+      </div>
+  </a>
+  ';
     
    }
    $output .= '

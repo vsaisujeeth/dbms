@@ -72,9 +72,9 @@ $(document).ready(function(){
             }
            });
     }
-    $('#p_search_text').keypress(function(e){ 
+    $('#p_search_text').keyup(function(){ 
      var search = $(this).val();
-         if(e.which ==13)
+        //  if(search != '')
          {
              p_load_data(search);
              console.log("entered efdsfddf:"+search);
@@ -82,17 +82,17 @@ $(document).ready(function(){
     
      
     });
-    $('#j_search_text').keydown(function(){
+    $('#j_search_text').keyup(function(){
         var search = $(this).val();
-        if(search != '')
+        // if(search != '')
         {
            j_load_data(search);
         }
         
        });
-       $('#c_search_text').keydown(function(){
+       $('#c_search_text').keyup(function(){
         var search = $(this).val();
-        if(search != '')
+        // if(search != '')
         {
           c_load_data(search);
         }
