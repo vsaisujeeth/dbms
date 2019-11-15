@@ -42,26 +42,23 @@ $(document).ready(function(){
     }
     $('#prnameid').keyup(function(e){ 
         var search = $(this).val();
-           if(search != '')
-           {
+          
               p1_load_data(search);
-           }
+           
         
        });
        $('#connameid').keyup(function(){
            var search = $(this).val();
-           if(search != '')
-           {
+           
               c1_load_data(search);
-           }
+           
            
           });
           $('#jnameid').keyup(function(){
            var search = $(this).val();
-           if(search != '')
-           {
+           
              j1_load_data(search);
-           }
+           
            
           });
 });

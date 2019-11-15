@@ -1,3 +1,14 @@
-Hello world 
-how are oyu
-shdfsda
+A person can login to the website as an Admin or as a faculty.
+The search.php is the main page where one could see all the publications and projects of all the faculties.
+Other pages are linked to the search page.
+
+For testing purpose
+To login as an Admin
+    username: admin
+    pwd     : admin
+
+To login as an faculty
+    usename : 1701CS05
+    pwd     : sagar05
+
+
