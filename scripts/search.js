@@ -74,28 +74,25 @@ $(document).ready(function(){
     }
     $('#p_search_text').keyup(function(){ 
      var search = $(this).val();
-        //  if(search != '')
-         {
+         
              p_load_data(search);
              console.log("entered efdsfddf:"+search);
-        }
+        
     
      
     });
     $('#j_search_text').keyup(function(){
         var search = $(this).val();
-        // if(search != '')
-        {
+        
            j_load_data(search);
-        }
+        
         
        });
        $('#c_search_text').keyup(function(){
         var search = $(this).val();
-        // if(search != '')
-        {
+       
           c_load_data(search);
-        }
+        
         
        });
 });
