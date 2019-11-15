@@ -102,7 +102,7 @@
                 <li><a href="#conferences" data-toggle="tab">Conferences</a></li>
                 <li><a href="#journals" data-toggle="tab" on>Journals</a></li>
                 <li><a href="#add" data-toggle="tab" on>Add New</a></li>
-                
+                <li><a href="#delete" data-toggle="tab" on onclick="showdelete()"> Delete</a></li>
 
             </ul>
             <div class="tab-content">
@@ -445,6 +445,46 @@
                                 </div>
                         </div>
                 </div>
+
+                <div class="tab-pane" id="delete">
+                    <div class="container ">
+                    <div class="col-xs-9">
+                    <form class="form" action="php/profile_conf_add.php" method="post" id="deleteform">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="delProj">
+                                    <h4>Project Id</h4></label>
+                                <input type="text" class="form-control" name="delProj" placeholder="project ID" title="enter  Id of project to be deleted">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="delConf">
+                                    <h4>Coference Id</h4></label>
+                                <input type="text" class="form-control" name="delConf"  placeholder="conference publication ID"  title="enter Id of Conference publication to be deleted">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="delJour">
+                                    <h4>Journal Id</h4></label>
+                                <input type="number" class="form-control" name="delJour"  placeholder="Journal publication ID"  title="enter Id of Journal publication to be deleted">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-danger" type="submit"> Delete</button>
+                            </div>
+                        </div>                       
+                    </form>
+                    </div>
+                    </div>
+                </div>
             </div>
             <!--/tab-pane-->
         </div>
@@ -457,6 +497,10 @@
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
+function showdelete()
+{
+    document.getElementById("deleteform").style.display="block";
+}
 function addprojects()
 {
     var x= document.getElementById("projectform");
