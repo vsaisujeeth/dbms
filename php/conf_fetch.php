@@ -1,11 +1,12 @@
 <?php
 //fetch.php
-$connect = mysqli_connect("localhost", "root", "", "dbms");
+require'connection.php';
+//$conn = mysqli_connect("localhost", "root", "", "dbms");
 $output = '';
 if(isset($_POST["query"]))
 //if(1)
 {
- $search = mysqli_real_escape_string($connect, $_POST["query"]);
+ $search = mysqli_real_escape_string($conn, $_POST["query"]);
  //$search = "project";
  $query = "
   SELECT * FROM conference 
@@ -24,7 +25,7 @@ else
  ";
 }
 
-$result = mysqli_query($connect, $query);
+$result = mysqli_query($conn, $query);
 if($result)
 {
       $output .= '

@@ -1,13 +1,14 @@
 <?php
 //fetch.php
-$connect = mysqli_connect("localhost", "root", "", "dbms");
+require'connection.php';
+//$conn = mysqli_connect("localhost", "root", "", "dbms");
 $output = '';
 $output1 = '';
 $output2 ='' ;
 // if(isset($_POST["query"]))
 // //if(1)
 // {
-//  $search = mysqli_real_escape_string($connect, $_POST["query"]);
+//  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 //  //$search = "project";
 //  $query = "
 //   SELECT * FROM projects 
@@ -23,7 +24,7 @@ $output2 ='' ;
  select topic,count(proj_id) from projects  group by(projects.topic);
  ";
 }
-$result = mysqli_query($connect, $query);
+$result = mysqli_query($conn, $query);
 if($result)
 if(mysqli_num_rows($result) > 0)
 {
@@ -73,7 +74,7 @@ else
   select topic,count(pub_id) from conference  group by(topic);
   ";
  }
- $result1 = mysqli_query($connect, $query1);
+ $result1 = mysqli_query($conn, $query1);
  if($result1)
  if(mysqli_num_rows($result1) > 0)
  {
@@ -123,7 +124,7 @@ else
   select topic,count(pub_id) from journal  group by(topic);
   ";
  }
- $result2 = mysqli_query($connect, $query2);
+ $result2 = mysqli_query($conn, $query2);
  if($result2)
  if(mysqli_num_rows($result2) > 0)
  {

@@ -3,7 +3,8 @@ session_start();
  $prid = $_POST['delProj'];
  $conid=$_POST['delConf'];
  $jourid=$_POST['delJour'];
- $conn = new mysqli("localhost","root","","dbms");
+ require'connection.php';
+ //$conn = new mysqli("localhost","root","","dbms");
  if(!empty($prid))
  {
  $sql= "SELECT * FROM worked_on WHERE proj_id='$prid'";

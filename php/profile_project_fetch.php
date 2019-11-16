@@ -1,14 +1,15 @@
 <?php
 //fetch.php
 session_start();
-$connect = mysqli_connect("localhost", "root", "", "dbms");
+require'connection.php';
+//$conn = mysqli_connect("localhost", "root", "", "dbms");
 $output = '';
 {
  $query = "
   SELECT * FROM projects WHERE proj_id in (SELECT proj_id FROM worked_on WHERE faculty_id='".$_SESSION['user_id']."')  
  ";
 }
-$result = mysqli_query($connect, $query);
+$result = mysqli_query($conn, $query);
 if(mysqli_num_rows($result) > 0)
 {
 
@@ -35,7 +36,7 @@ if(mysqli_num_rows($result) > 0)
     <td>'.$row["name"].'</td><td>';
     
     $q="SELECT faculty.name FROM faculty,worked_on WHERE faculty.faculty_id=worked_on.faculty_id AND proj_id = '".$row["proj_id"]."'";
-    $res=mysqli_query($connect,$q);
+    $res=mysqli_query($conn,$q);
     if($res)
     {
         while($row1 = mysqli_fetch_array($res))

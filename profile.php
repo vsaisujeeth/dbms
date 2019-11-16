@@ -1,6 +1,7 @@
 <?php
     session_start();
-    $connect = mysqli_connect("localhost", "root", "", "dbms");
+    require'php/connection.php';
+    //$conn = mysqli_connect("localhost", "root", "", "dbms");
     if ($_SESSION['user_id'] ==null) {
     header('Location: login.html');
     exit();
@@ -194,7 +195,7 @@
                                                             <select style ="width:100%; " class="js-example-basic-multiple form-control" name="faculty[]" multiple = "multiple" >
                                                                 <?php
                                                                     $sql = "select * from faculty ";
-                                                                    $result1 = $connect->query($sql);
+                                                                    $result1 = $conn->query($sql);
                                                                     if($result1)
                                                                     {
                                                                         while($row = $result1->fetch_assoc())
@@ -303,7 +304,7 @@
                                                     <select style ="width:100%; " class="js-example-basic-multiple form-control" name="faculty[]" multiple = "multiple" >
                                                         <?php
                                                                 $sql = "select * from faculty ";
-                                                                $result1 = $connect->query($sql);
+                                                                $result1 = $conn->query($sql);
                                                                 if($result1)
                                                                 {
                                                                     while($row = $result1->fetch_assoc())
@@ -415,7 +416,7 @@
                                                         <select style ="width:100%; " class="js-example-basic-multiple form-control" name="faculty[]" multiple = "multiple" >
                                                             <?php
                                                                  $sql = "select * from faculty ";
-                                                                 $result1 = $connect->query($sql);
+                                                                 $result1 = $conn->query($sql);
                                                                  if($result1)
                                                                  {
                                                                      while($row = $result1->fetch_assoc())

@@ -1,6 +1,7 @@
 <?php
     session_start();
-    $connect = mysqli_connect("localhost", "root", "", "dbms");
+    require'connection.php';
+    //$conn = mysqli_connect("localhost", "root", "", "dbms");
    
     
 

@@ -1,6 +1,7 @@
 <?php
     session_start();
-    $connect = mysqli_connect("localhost", "root", "", "dbms");
+    require'php/connection.php';
+   // $conn = mysqli_connect("localhost", "root", "", "dbms");
     if ($_SESSION['user_id'] ==null) {
     header('Location: login.html');
     exit();

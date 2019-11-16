@@ -1,13 +1,14 @@
 <?php
 //fetch.php
-$connect = mysqli_connect("localhost", "root", "", "dbms");
+require'connection.php';
+//$conn = mysqli_connect("localhost", "root", "", "dbms");
 $output = '';
 $output1 ='';
 $output2 ='';
 // if(isset($_POST["query"]))
 // //if(1)
 // {
-//  $search = mysqli_real_escape_string($connect, $_POST["query"]);
+//  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 //  //$search = "project";
 //  $query = "
 //   SELECT * FROM projects 
@@ -19,7 +20,7 @@ $output2 ='';
 // }
 // else
  $query = "select year(start_date) as year,count(proj_id) as pr from  projects group by(year(start_date)) order by (year(start_date)) desc limit 3";
-$result = mysqli_query($connect, $query);
+$result = mysqli_query($conn, $query);
 if($result)
 {
   if(mysqli_num_rows($result) > 0)
@@ -65,7 +66,7 @@ if($result)
   } 
 }
 $query1 = "select p_year as year,count(pub_id) as pr from  conference group by(p_year) order by p_year desc limit 3";
-$result1 = mysqli_query($connect, $query1);
+$result1 = mysqli_query($conn, $query1);
 if($result1)
 {
   if(mysqli_num_rows($result1) > 0)
@@ -111,7 +112,7 @@ if($result1)
   } 
 }
 $query2 = "select p_year as year,count(pub_id) as pr from journal group by(p_year) order by p_year desc limit 3";
-$result2 = mysqli_query($connect, $query2);
+$result2 = mysqli_query($conn, $query2);
 if($result2)
 {
   if(mysqli_num_rows($result2) > 0)

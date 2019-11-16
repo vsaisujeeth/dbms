@@ -1,7 +1,8 @@
 <?php
 //fetch.php
 session_start();
-$connect = mysqli_connect("localhost", "root", "", "dbms");
+require'connection.php';
+//$conn = mysqli_connect("localhost", "root", "", "dbms");
 $output = '';
 
 
@@ -10,7 +11,7 @@ $output = '';
  SELECT * FROM journal WHERE pub_id in (SELECT pub_id FROM published_jour_by WHERE faculty_id='".$_SESSION['user_id']."')  
  ";
 }
-$result = mysqli_query($connect, $query);
+$result = mysqli_query($conn, $query);
 if(mysqli_num_rows($result) > 0)
 {
 

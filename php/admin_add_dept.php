@@ -1,6 +1,7 @@
 <?php
  $dept = $_POST['dept'];
- $conn = new mysqli("localhost","root","","dbms");
+ require'connection.php';
+ //$conn = new mysqli("localhost","root","","dbms");
  $sql = "SELECT * FROM departments WHERE dept_name='$dept'";
  $result = $conn->query($sql);
  if($result->num_rows>0)

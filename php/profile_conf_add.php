@@ -1,6 +1,7 @@
 <?php
     session_start();
-    $connect = mysqli_connect("localhost", "root", "", "dbms");
+    require'connection.php';
+    //$conn = mysqli_connect("localhost", "root", "", "dbms");
     echo($_POST['conf_name']);
     $conf_name=$_POST['conf_name'];
     $month=$_POST['conf_month'];

@@ -1,6 +1,7 @@
 <?php
  $fid = $_POST['faci'];
- $conn = new mysqli("localhost","root","","dbms");
+ require'connection.php';
+ //$conn = new mysqli("localhost","root","","dbms");
  $sql = "SELECT * FROM faculty WHERE faculty_id='$fid'";
  $result = $conn->query($sql);
  if($result->num_rows>0)

@@ -5,8 +5,9 @@ session_start();
 if ( ! empty( $_POST ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
         // Getting submitted user data from database
-        $con = new mysqli("localhost", "root", "", "dbms");
-        $stmt = $con->prepare("SELECT * FROM admin WHERE faculty_id = ?");
+        require'connection.php';
+        //$conn = new mysqli("localhost", "root", "", "dbms");
+        $stmt = $conn->prepare("SELECT * FROM admin WHERE faculty_id = ?");
         $stmt->bind_param('s', $_POST['username']);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -29,7 +30,7 @@ if ( ! empty( $_POST ) ) {
             else{
 
                 $sql = "select * from faculty where faculty_id = '$user->faculty_id'";
-                $result1 = $con->query($sql);
+                $result1 = $conn->query($sql);
                 if($result1)
                 {
                     $row = $result1->fetch_assoc();
@@ -39,7 +40,7 @@ if ( ! empty( $_POST ) ) {
                 }
 
                 $sql = "select count(*) as total from worked_on where faculty_id = '$user->faculty_id'";
-                $result1 = $con->query($sql);
+                $result1 = $conn->query($sql);
                 if($result1)
                 {
                     $row = $result1->fetch_assoc();
@@ -47,7 +48,7 @@ if ( ! empty( $_POST ) ) {
                     
                 }
                 $sql = "select count(*) as total from published_conf_by where faculty_id = '$user->faculty_id'";
-                $result1 = $con->query($sql);
+                $result1 = $conn->query($sql);
                 if($result1)
                 {
                     $row = $result1->fetch_assoc();
@@ -55,7 +56,7 @@ if ( ! empty( $_POST ) ) {
                     
                 }
                 $sql = "select count(*) as total from published_jour_by where faculty_id = '$user->faculty_id'";
-                $result1 = $con->query($sql);
+                $result1 = $conn->query($sql);
                 if($result1)
                 {
                     $row = $result1->fetch_assoc();
